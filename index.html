@@ -52,6 +52,41 @@
       background: linear-gradient(120deg, rgba(255,255,255,.08), transparent 30%, transparent 70%, rgba(255,255,255,.06));
       mix-blend-mode: screen; opacity: .6;
     }
+
+    .store {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.product {
+  display: inline-block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-img {
+  max-width: 200px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.buy-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #8A2BE2;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.buy-btn:hover {
+  background: #5a189a;
+}
+
   </style>
 </head>
 <body class="min-h-screen text-slate-100">
@@ -69,6 +104,7 @@
           <a class="hover:text-white/90 text-white/80" href="#work">Work</a>
           <a class="hover:text-white/90 text-white/80" href="#faq">FAQ</a>
           <a class="hover:text-white/90 text-white/80" href="#contact">Contact</a>
+          <a class="hover:text-white/90 text-white/80" href="#store">Store</a>
         </nav>
         <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl gloss"><span class="sr-only">Menu</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M3.75 5.25h16.5v1.5H3.75zm0 6h16.5v1.5H3.75zm0 6h16.5v1.5H3.75z"/></svg>
@@ -253,13 +289,23 @@
       </div>
     </div>
   </section>
+<!-- Store Section -->
+  <section id="store" class="store">
+    <h2>Store</h2>
+    <div class="product">
+      <img src="assets/sticker.png" alt="Buffalo Sticker" class="product-img">
+      <h3>Buffalo Sticker</h3>
+      <p>$4.00</p>
+      <a href="https://buy.stripe.com/eVq28r3Z58WddJk7mv3oA00" target="_blank" class="buy-btn">Buy Now</a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="py-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/70">
       <div class="h-px w-full bg-gradient-to-r from-fuchsia-300/60 via-white/30 to-cyan-300/60 mb-6"></div>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p>© <span id="year"></span>© 2025 Anima Artistry, a DBA of Chi Hullo Li Creations LLC. All rights reserved.</p>
+        <p>© <span id="year"></span> Anima Artistry, a DBA of Chi Hullo Li Creations LLC. All rights reserved.</p>
         <div class="flex gap-4">
           <a href="#services" class="hover:text-white">Services</a>
           <a href="#about" class="hover:text-white">About</a>
