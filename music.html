@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amanda Perez Design & Dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --glass: rgba(10,10,10,.84); }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+
+    /* Animated background gradient */
+    .bg-aurora {
+      background: linear-gradient(135deg,#8A2BE2, #00CFFF, #FF5EDF);
+      background-size: 200% 200%;
+      animation: move 12s ease-in-out infinite;
+    }
+    @keyframes move {
+      0% {background-position: 0% 50%}
+      50% {background-position: 100% 50%}
+      100% {background-position: 0% 50%}
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0%, 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    /* Glossy card surface */
+    .gloss {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* Subtle sheen */
+    .sheen:before {
+      content: "";
+      position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+      background: linear-gradient(120deg, rgba(255,255,255,.08), transparent 30%, transparent 70%, rgba(255,255,255,.06));
+      mix-blend-mode: screen; opacity: .6;
+    }
+
+    .store {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.product {
+  display: inline-block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-img {
+  max-width: 200px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.buy-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #8A2BE2;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.buy-btn:hover {
+  background: #5a189a;
+}
+
+  </style>
+</head>
+<body class="min-h-screen text-slate-100">
+  <!-- Background layer -->
+  <div class="fixed inset-0 bg-aurora -z-10"></div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+      <div class="gloss sheen relative rounded-2xl px-4 py-3 flex items-center justify-between">
+        <a href="index.html" class="font-extrabold tracking-tight text-lg md:text-xl">Amanda Perez Design & Development</span></a>
+        <nav class="hidden md:flex gap-8 text-sm">
+          <a class="hover:text-white/90 text-white/80" href="index.html">Home</a>
+
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl gloss"><span class="sr-only">Menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M3.75 5.25h16.5v1.5H3.75zm0 6h16.5v1.5H3.75zm0 6h16.5v1.5H3.75z"/></svg>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden mt-2 gloss rounded-2xl px-4 py-3 md:hidden">
+        <a class="block py-2" href="amandaperez.dev/index.html">Home</a>
+
+      </div>
+    </div>
+  </header>
+
+
+
+<!-- ABOUT -->
+<section id="about" class="py-16">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 flex justify-center">
+    <div class="gloss sheen relative rounded-3xl p-8 w-full">
+      <h2 class="text-3xl font-extrabold mb-4 text-center">Live - WIP - See my Music Dashboard</h2>
+
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/70">
+      <div class="h-px w-full bg-gradient-to-r from-fuchsia-300/60 via-white/30 to-cyan-300/60 mb-6"></div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p>© <span id="year"></span> Amanda Perez Design and Development, a DBA of CHi Hullo Li Creations LLC. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#services" class="hover:text-white">Services</a>
+          <a href="#about" class="hover:text-white">About</a>
+          <a href="#work" class="hover:text-white">Work</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
+
