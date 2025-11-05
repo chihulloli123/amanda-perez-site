@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Templates | Amanda Perez Design & Dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-[#F9F5F2] text-slate-800">
+  <!-- NAV -->
+  <header class="sticky top-0 bg-[#1B2735] text-white py-4 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="font-extrabold text-lg">Amanda Perez Design & Dev</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="index.html#services" class="hover:text-cyan-400">Services</a>
+        <a href="index.html#about" class="hover:text-cyan-400">About</a>
+        <a href="templates.html" class="text-cyan-400 font-semibold">Templates</a>
+        <a href="index.html#contact" class="hover:text-cyan-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-r from-[#00CFFF] to-[#FF7A00] text-white py-20 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Website Templates</h1>
+    <p class="text-lg md:text-xl font-light max-w-2xl mx-auto">
+      Explore ready-to-go small business websites designed and developed by Amanda Perez.
+    </p>
+  </section>
+
+  <!-- TEMPLATE GRID -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+      
+      <!-- Handyman -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+        <img src="assets/sunset.jpg" alt="Handyman Template Preview" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-[#1B2735]">Lake Texoma Handyman</h3>
+          <p class="text-gray-600 mb-4">Bold and confident design for local repair, construction, or trades professionals.</p>
+          <a href="templates/handyman/index.html" target="_blank" class="inline-block bg-[#FF7A00] text-white px-5 py-2 rounded-full font-semibold hover:opacity-90 transition">View Template</a>
+        </div>
+      </div>
+
+      <!-- Cleaning -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+        <img src="assets/cleaning.jpg" alt="Cleaning Template Preview" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-[#1B2735]">Lake Luxe Cleaning Co.</h3>
+          <p class="text-gray-600 mb-4">Luxury-inspired design for premium residential or vacation rental cleaning services.</p>
+          <a href="templates/cleaning/index.html" target="_blank" class="inline-block bg-[#CBA135] text-white px-5 py-2 rounded-full font-semibold hover:opacity-90 transition">View Template</a>
+        </div>
+      </div>
+
+      <!-- Future Template Placeholder -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col justify-center text-center p-6">
+        <p class="text-gray-500 italic mb-2">More coming soon…</p>
+        <a href="index.html#contact" class="text-cyan-600 font-semibold hover:underline">Request a custom template →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#1B2735] text-white text-center py-6 text-sm">
+    © <span id="year"></span> Amanda Perez Design & Development — All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
