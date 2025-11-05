@@ -1,203 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Amanda Perez Design & Dev</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>
-:root { --accent: #00B7C2; }
-html { scroll-behavior: smooth; }
-body {
-font-family: 'Inter', system-ui, sans-serif;
-color: #1E1E1E;
-background-color: #FFFFFF;
--webkit-font-smoothing: antialiased;
-}
-h1, h2, h3, h4 {
-font-weight: 700;
-color: #111827;
-}
-p { color: #4B5563; }
-a {
-color: var(--accent);
-font-weight: 600;
-transition: color 0.3s ease;
-}
-a:hover { color: #008ea1; }
-/* NAV */
-header .nav-wrap {
-background: #ffffffcc;
-border: 1px solid #e5e7eb;
-backdrop-filter: blur(8px);
-box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-header a { color: #111; }
-header a:hover {
-  color: #oob7c2;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-/* CARD BASE */
-.card {
-background: #fff;
-border: 1px solid #e5e7eb;
-border-radius: 16px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-padding: 24px;
-}
-/* BUTTONS */
-.btn {
-background-color: var(--accent);
-color: #fff;
-border-radius: 9999px;
-font-weight: 600;
-padding: 10px 24px;
-display: inline-block;
-transition: all .25s ease;
-}
-.btn:hover {
-background-color: #0097a8;
-box-shadow: 0 4px 10px rgba(0,183,194,.4);
-}
-/* SECTION PADDING */
-section { padding-top: 5rem; padding-bottom: 5rem; }
-/* DIVIDERS */
-hr.section-divider {
-border-top: 1px solid #E5E7EB;
-margin: 5rem auto;
-max-width: 80%;
-}
-/* FOOTER */
-footer {
-background: #F9FAFB;
-color: #4B5563;
-font-size: 0.875rem;
-border-top: 1px solid #E5E7EB;
-padding-top: 2rem;
-padding-bottom: 2rem;
-}
-footer a:hover { color: var(--accent); }
-</style>
-</head>
-<body>
-<!-- NAVBAR -->
-<header class="sticky top-0 z-50">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-<div class="nav-wrap rounded-xl px-4 py-3 flex items-center justify-between">
-<a href="#home" class="font-extrabold tracking-tight text-lg md:text-xl">
-Amanda Perez Design & Development
-</a>
-<nav class="hidden md:flex gap-8 text-sm">
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
-<a href="#store">Store</a>
-<a class="hover:text-white/90 text-white/80" href="templates.html">Templates</a>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amanda Perez Design & Dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #00B7C2; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1E1E1E;
+      background-color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      color: #111827;
+    }
+    p { color: #4B5563; }
+    a {
+      color: var(--accent);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a:hover { color: #008ea1; }
 
-</nav>
-</div>
-</div>
-</header>
-<!-- HERO -->
-<section id="home" class="pt-16">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 items-center">
-<div class="md:col-span-7 space-y-6">
-<h1 class="text-5xl font-bold leading-tight">
-Building Bold Tech with Style.
-</h1>
-<p class="text-lg">
-I design modern, secure, and scalable web applications that help businesses grow online. 
-Proudly based in Oklahoma, I blend technical skill with creative design for real-world results.
-</p>
-<a href="#contact" class="btn mt-4">Get in Touch</a>
-</div>
-<div class="md:col-span-5 flex justify-center">
-<img src="assets/ap.jpg" alt="Amanda Perez" class="rounded-3xl w-64 md:w-80 border border-gray-200 shadow-lg">
-</div>
-</div>
-</section>
-<hr class="section-divider">
-<!-- SERVICES -->
-<section id="services">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-<h2 class="text-4xl font-bold mb-8">Services</h2>
-<div class="grid md:grid-cols-3 gap-8">
-<div class="card">
-<h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
-<p>Clean, easy-to-use designs that convert browsers into customers.</p>
-</div>
-<div class="card">
-<h3 class="text-xl font-semibold mb-2">Web Development</h3>
-<p>Responsive, fast websites using React, Next.js, and Tailwind CSS.</p>
-</div>
-<div class="card">
-<h3 class="text-xl font-semibold mb-2">Hosting & Domains</h3>
-<p>Custom domain setup, DNS configuration, and fast deployment.</p>
-</div>
-</div>
-</div>
-</section>
-<hr class="section-divider">
-<!-- ABOUT -->
-<section id="about">
-<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-<h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
-<p class="text-lg mb-4 text-center">
-I’m a Native American systems analyst and developer focused on designing high-quality, scalable websites and digital tools. 
-My mission is to bridge creativity and precision, bringing enterprise-grade reliability to small businesses.
-</p>
-<ul class="list-disc list-inside text-gray-700 space-y-2 mt-6">
-<li>Web Development (React, Tailwind, ASP.NET, Blazor)</li>
-<li>Workflow Automation & Power Platform</li>
-<li>UI/UX and Brand Systems</li>
-<li>Secure Cloud Deployments</li>
-<li>Data Visualization & Analysis</li>
-</ul>
-</div>
-</section>
-<hr class="section-divider">
-<!-- CONTACT -->
-<section id="contact">
-<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-<h2 class="text-4xl font-bold mb-6 text-center">Let’s Build Something Together</h2>
-<p class="text-center text-gray-600 mb-8">Tell me a bit about your project and timeline.</p>
-<form action="https://formspree.io/f/xqaykwry" method="POST" class="grid sm:grid-cols-2 gap-4">
-<input required type="text" name="name" placeholder="Name" class="rounded-xl border px-4 py-3" />
-<input required type="email" name="email" placeholder="Email" class="rounded-xl border px-4 py-3" />
-<input type="text" name="company" placeholder="Company / Brand" class="sm:col-span-2 rounded-xl border px-4 py-3" />
-<textarea required name="message" rows="5" placeholder="Project details…" class="sm:col-span-2 rounded-xl border px-4 py-3"></textarea>
-<button type="submit" class="btn sm:col-span-2">Send Message</button>
-</form>
-</div>
-</section>
-<hr class="section-divider">
-<!-- STORE -->
-<section id="store" class="text-center">
-<h2 class="text-4xl font-bold mb-8 text-cyan-600">Store</h2>
-<div class="card inline-block">
-<img src="assets/buffalo-sticker.jpg" alt="Buffalo Sticker" class="rounded-lg mb-4 w-48 mx-auto">
-<h3 class="text-xl font-semibold mb-1">Buffalo Sticker</h3>
-<p class="font-bold mb-3">$4.00</p>
-<a href="https://buy.stripe.com/eVq28r3Z58WddJk7mv3oA00" target="_blank" class="btn">Buy Now</a>
-</div>
-</section>
-<footer>
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between">
-<p>© <span id="year"></span> Amanda Perez Design & Development, DBA Chi Hullo Li Creations LLC.</p>
-<div class="flex gap-4 mt-2 sm:mt-0">
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
-</footer>
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    /* NAV */
+    header .nav-wrap {
+      background: #ffffffcc;
+      border: 1px solid #e5e7eb;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    header a { color: #111; }
+    header a:hover {
+      color: #00b7c2;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* CARD BASE */
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 24px;
+    }
+
+    /* BUTTONS */
+    .btn {
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 9999px;
+      font-weight: 600;
+      padding: 10px 24px;
+      display: inline-block;
+      transition: all .25s ease;
+    }
+    .btn:hover {
+      background-color: #0097a8;
+      box-shadow: 0 4px 10px rgba(0,183,194,.4);
+    }
+
+    /* SECTION PADDING */
+    section { padding-top: 5rem; padding-bottom: 5rem; }
+
+    /* DIVIDERS */
+    hr.section-divider {
+      border-top: 1px solid #E5E7EB;
+      margin: 5rem auto;
+      max-width: 80%;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #F9FAFB;
+      color: #4B5563;
+      font-size: 0.875rem;
+      border-top: 1px solid #E5E7EB;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+      <div class="nav-wrap rounded-xl px-4 py-3 flex items-center justify-between">
+        <a href="#home" class="font-extrabold tracking-tight text-lg md:text-xl">
+          Amanda Perez Design & Development
+        </a>
+        <nav class="hidden md:flex gap-8 text-sm">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <a href="#store">Store</a>
+          <a href="templates.html">Templates</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="pt-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7 space-y-6">
+        <h1 class="text-5xl font-bold leading-tight">
+          Building Bold Tech with Style.
+        </h1>
+        <p class="text-lg">
+          I design modern, secure, and scalable web applications that help businesses grow online. 
+          Proudly based in Oklahoma, I blend technical skill with creative design for real-world results.
+        </p>
+        <a href="#contact" class="btn mt-4">Get in Touch</a>
+      </div>
+      <div class="md:col-span-5 flex justify-center">
+        <img src="assets/ap.jpg" alt="Amanda Perez" class="rounded-3xl w-64 md:w-80 border border-gray-200 shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold mb-8">Services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+          <p>Clean, easy-to-use designs that convert browsers into customers.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+          <p>Responsive, fast websites using React, Next.js, and Tailwind CSS.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">Hosting & Domains</h3>
+          <p>Custom domain setup, DNS configuration, and fast deployment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
+      <p class="text-lg mb-4 text-center">
+        I’m a Native American systems analyst and developer focused on designing high-quality, scalable websites and digital tools. 
+        My mission is to bridge creativity and precision, bringing enterprise-grade reliability to small businesses.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2 mt-6">
+        <li>Web Development (React, Tailwind, ASP.NET, Blazor)</li>
+        <li>Workflow Automation & Power Platform</li>
+        <li>UI/UX and Brand Systems</li>
+        <li>Secure Cloud Deployments</li>
+        <li>Data Visualization & Analysis</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold mb-6 text-center">Let’s Build Something Together</h2>
+      <p class="text-center text-gray-600 mb-8">Tell me a bit about your project and timeline.</p>
+      <form action="https://formspree.io/f/xqaykwry" method="POST" class="grid sm:grid-cols-2 gap-4">
+        <input required type="text" name="name" placeholder="Name" class="rounded-xl border px-4 py-3" />
+        <input required type="email" name="email" placeholder="Email" class="rounded-xl border px-4 py-3" />
+        <input type="text" name="company" placeholder="Company / Brand" class="sm:col-span-2 rounded-xl border px-4 py-3" />
+        <textarea required name="message" rows="5" placeholder="Project details…" class="sm:col-span-2 rounded-xl border px-4 py-3"></textarea>
+        <button type="submit" class="btn sm:col-span-2">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- STORE -->
+  <section id="store" class="text-center">
+    <h2 class="text-4xl font-bold mb-8 text-cyan-600">Store</h2>
+    <div class="card inline-block">
+      <img src="assets/buffalo-sticker.jpg" alt="Buffalo Sticker" class="rounded-lg mb-4 w-48 mx-auto">
+      <h3 class="text-xl font-semibold mb-1">Buffalo Sticker</h3>
+      <p class="font-bold mb-3">$4.00</p>
+      <a href="https://buy.stripe.com/eVq28r3Z58WddJk7mv3oA00" target="_blank" class="btn">Buy Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between">
+      <p>© <span id="year"></span> Amanda Perez Design & Development, DBA Chi Hullo Li Creations LLC.</p>
+      <div class="flex gap-4 mt-2 sm:mt-0">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
