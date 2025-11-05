@@ -1,378 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amanda Perez Design & Dev</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --glass: rgba(10,10,10,.84); }
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
-
-    /* Animated background gradient */
-    .bg-aurora {
-      background: linear-gradient(135deg,#8A2BE2, #00CFFF, #FF5EDF);
-      background-size: 200% 200%;
-      animation: move 12s ease-in-out infinite;
-    }
-    @keyframes move {
-      0% {background-position: 0% 50%}
-      50% {background-position: 100% 50%}
-      100% {background-position: 0% 50%}
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0%, 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .animate-gradient {
-      background-size: 200% 200%;
-      animation: gradientShift 6s ease infinite;
-    }
-
-    /* Glossy card surface */
-    .gloss {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    /* Subtle sheen */
-    .sheen:before {
-      content: "";
-      position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-      background: linear-gradient(120deg, rgba(255,255,255,.08), transparent 30%, transparent 70%, rgba(255,255,255,.06));
-      mix-blend-mode: screen; opacity: .6;
-    }
-
-    .store {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.product {
-  display: inline-block;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.product-img {
-  max-width: 200px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.buy-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #8A2BE2;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.buy-btn:hover {
-  background: #5a189a;
-}
-
-  </style>
-</head>
-<body class="min-h-screen text-slate-100">
-  <!-- Background layer -->
-  <div class="fixed inset-0 bg-aurora -z-10"></div>
-
-  <!-- NAVBAR -->
-  <header class="sticky top-0 z-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-      <div class="gloss sheen relative rounded-2xl px-4 py-3 flex items-center justify-between">
-        <a href="#home" class="font-extrabold tracking-tight text-lg md:text-xl">Amanda Perez Design & Development</span></a>
-        <nav class="hidden md:flex gap-8 text-sm">
-          <a class="hover:text-white/90 text-white/80" href="#services">Services</a>
-          <a class="hover:text-white/90 text-white/80" href="#about">About</a>
-          <a class="hover:text-white/90 text-white/80" href="#faq">FAQ</a>
-          <a class="hover:text-white/90 text-white/80" href="#contact">Contact</a>
-          <a class="hover:text-white/90 text-white/80" href="#store">Store</a>
-          <a class="hover:text-white/90 text-white/80" href="music.html">Music</a>
-        </nav>
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl gloss"><span class="sr-only">Menu</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M3.75 5.25h16.5v1.5H3.75zm0 6h16.5v1.5H3.75zm0 6h16.5v1.5H3.75z"/></svg>
-        </button>
-      </div>
-      <div id="mobileMenu" class="hidden mt-2 gloss rounded-2xl px-4 py-3 md:hidden">
-        <a class="block py-2" href="#services">Services</a>
-        <a class="block py-2" href="#about">About</a>
-        <a class="block py-2" href="#work">Work</a>
-        <a class="block py-2" href="#faq">FAQ</a>
-        <a class="block py-2" href="#contact">Contact</a>
-        <a class="block py-2" href="#store">Store</a>
-        <a class="block py-2" href="music.html/">Music</a>
-      </div>
-    </div>
-  </header>
-
-<!-- HERO -->
-<!-- HERO -->
-<section id="home" class="pt-10 sm:pt-16">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 items-center">
-    
-    <!-- LEFT SIDE -->
-    <div class="md:col-span-7">
-      <div class="gloss sheen relative rounded-3xl p-8 md:p-10">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          I Build Bold Tech</span> With Style
-        </h1>
-        <!-- RIGHT SIDE (Profile Photo) -->
-      <div class="md:col-span-5 flex justify-center items-center">
-      <img 
-       src="assets/ap.jpg" 
-        alt="Amanda Perez portrait" 
-        class="rounded-3xl shadow-2xl border border-white/20 w-64 md:w-80 object-cover backdrop-blur-md bg-white/10"
-        />
-      </div>
-
-        <p class="mt-4 text-lg text-white/80">
-          I design bold, modern web applications and brand systems that help businesses stand out and grow. 
-          A proud graduate of Durant High School and Southeastern Oklahoma State University, 
-          I bring both local roots and technical expertise to every project.
-        </p>
-<div class="mt-8 flex justify-center">
-  <a href="#contact" 
-     class="rounded-full px-6 py-3 font-semibold bg-white/90 text-slate-900 border border-white/90 shadow-md hover:bg-white hover:shadow-lg backdrop-blur-md transition">
-     Get in Touch
-  </a>
-</div>
-
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE -->
- 
-
-  </div>
-</section>
-
-
-
-  <!-- SERVICES -->
-  <section id="services" class="py-16 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Services</h2>
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Card -->  
-        <div class="gloss sheen relative rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <h3 class="text-xl font-semibold">UI/UX Design</h3>
-          </div>
-          
-          <p class="mt-3 text-white/80">Turning client input into clear, modern designs that are easy to use.</p>
-        </div>
-        
-        <div class="gloss sheen relative rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <h3 class="text-xl font-semibold">Frontend Engineering</h3>
-          </div>
-          
-          <p class="mt-3 text-white/80">Building fast, responsive websites with Tailwind, React/Next.js, and smooth animations.</p>
-        </div>
-        
-              <div class="gloss sheen relative rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <h3 class="text-xl font-semibold">Deployment & Hosting</h3>
-          </div>
-                
-          <p class="mt-3 text-white/80">Publishing sites on vercel or Github Pages, making them live on the web with you own custom domain.</p>
-        </div>
-
-              <div class="gloss sheen relative rounded-2xl p-6">
-        <h3 class="text-xl font-semibold gap-3">Email & Domain Infrastructure</h3>
-        <p class="text-gray-200 text-sm">Configuring DNS, MX, SPF, and DMARC records for professional business email. Ensures messages send securely, avoid spam, and give your brand a verified presence online.
-        </p>
-      </div>
-        
-              <div class="gloss sheen relative rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <h3 class="text-xl font-semibold">Version Control & Workflow</h3>
-          </div>
-                
-          <p class="mt-3 text-white/80">Using Git and Github to manage code, updates, and collaboration.</p>
-        </div>
-        
-        <div class="gloss sheen relative rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            
-            <h3 class="text-xl font-semibold">Brand & Assets</h3>
-          </div>
-          
-          <p class="mt-3 text-white/80">Logos, sticker packs, and social templates that match the product’s UI perfectly.</p>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-<!-- ABOUT -->
-<section id="about" class="py-16">
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 flex justify-center">
-    <div class="gloss sheen relative rounded-3xl p-8 w-full">
-      <h2 class="text-3xl font-extrabold mb-4 text-center">About Me</h2>
-
-      <!-- STAT CALL-OUT -->
-      <div class="mb-6 text-center">
-        <h3 class="text-6xl font-extrabold text-white tracking-tight">1 in 25</h3>
-        <p class="text-white/70 text-lg max-w-xl mx-auto">
-          Native American women in the world independently building across both enterprise low-code 
-          platforms and full-stack API environments.
-        </p>
-      </div>
-
-      <p class="text-white/80 mb-4">
-        I started coding as a kid by breaking and fixing HTML and CSS pages, teaching myself through trial and error. 
-        Along the way, I learned web internals hands-on — exploring directory structures and image endpoints — which 
-        sparked a lifelong interest in secure, resilient systems. That curiosity grew into the technical foundation I 
-        carried into my professional life.
-      </p>
-
-      <p class="text-white/80 mb-4">
-        For over a decade, I worked in high-stakes operations — managing compliance, risk, and performance as an 
-        member of the operations management team. My role required keeping critical systems running without disruption, meeting local, 
-        state, and federal standards, and mentoring staff under servant leadership principles.
-      </p>
-
-      <p class="text-white/80 mb-6">
-        Now, I’ve returned to my first passion: building. I run my own business as a full-time developer and founder, 
-        blending enterprise IT experience with modern web technologies. My current focus spans <strong>web applications, 
-        SharePoint solutions, and high-performance computing (CUDA, parallel programming, and GPU acceleration)</strong>. 
-        I bring a perspective that’s rare: grounded in sovereignty, driven by discipline, and future-focused.
-      </p>
-
-<h3 class="text-xl font-semibold mb-2 text-center">What I Offer</h3>
-<p class="text-white/80 text-center max-w-2xl mx-auto">
-  I build systems that last — solutions that connect design, data, and everyday operations. 
-  Whether you need a client-facing site or an internal platform that runs your workflow, 
-  I design tools that work the way people do: fast, reliable, and easy to maintain.
-</p>
-
-<ul class="text-white/80 text-center list-disc list-inside space-y-3 mt-6 max-w-2xl mx-auto leading-relaxed">
-  <li><strong>Web Development (React, Tailwind, Blazor, ASP.NET, HTML/CSS, Vue, Git)</strong></li>
-  <li><strong>Process Automation & Workflow Design</strong></li>
-  <li><strong>Power Platform Development (Power Apps, Power Automate, SharePoint)</strong></li>
-  <li><strong>UI/UX Design</strong></li>
-  <li><strong>Brand & Digital Assets</strong></li>
-  <li><strong>Cloud Deployments</strong></li>
-  <li><strong>Data Visualization & Analysis (Power BI, Python, Pandas, matplotlib</strong></li>
-</ul>
-
-
-
-    </div>
-  </div>
-</section>
-
-  <!-- WORK / PORTFOLIO -- > 
-
-  <!-- FAQ -->
-  <section id="faq" class="py-16">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-extrabold mb-6">FAQ</h2>
-      <div class="space-y-3">
-        <details class="group gloss rounded-2xl p-5">
-          <summary class="cursor-pointer list-none flex items-center justify-between">
-            <span class="font-semibold">What’s your typical timeline?</span>
-            <span class="ml-4 text-white/60 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-white/80">Landing pages in 3–7 days. Full sites in 2–4 weeks depending on scope and content readiness.</p>
-        </details>
-        <details class="group gloss rounded-2xl p-5">
-          <summary class="cursor-pointer list-none flex items-center justify-between">
-            <span class="font-semibold">Do you provide design and code?</span>
-            <span class="ml-4 text-white/60 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-white/80">Yes — I ship Figma comps or go straight to Tailwind/React with clean, documented components.</p>
-        </details>
-        <details class="group gloss rounded-2xl p-5">
-          <summary class="cursor-pointer list-none flex items-center justify-between">
-            <span class="font-semibold">How do we start?</span>
-            <span class="ml-4 text-white/60 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-3 text-white/80">Send a note through the form below. We’ll scope on a quick call and set milestones.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-16 sm:py-24">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="gloss sheen relative rounded-3xl p-8">
-        <h2 class="text-3xl font-extrabold">Let’s build something together. </h2>
-        <p class="mt-2 text-white/80">Tell me a bit about your project and timeline.</p>
-
-        
- <form action="https://formspree.io/f/xqaykwry" method="POST" class="mt-6 grid sm:grid-cols-2 gap-4">
-  <input required type="text" name="name" placeholder="Name" class="rounded-xl bg-black/40 border px-4 py-3" />
-  <input required type="email" name="email" placeholder="Email" class="rounded-xl bg-black/40 border px-4 py-3" />
-  <input type="text" name="company" placeholder="Company / Brand" class="sm:col-span-2 rounded-xl bg-black/40 border px-4 py-3" />
-  <textarea required name="message" rows="5" placeholder="Project details…" class="sm:col-span-2 rounded-xl bg-black/40 border px-4 py-3"></textarea>
-   
-  <button type="submit" class="sm:col-span-2 rounded-full px-6 py-3 font-semibold bg-white text-slate-900 hover:brightness-110">Send Message</button>
-   
-</form>
-
-      </div>
-    </div>
-  </section>
-<!-- Store Section -->
-<section id="store" class="store py-16 text-center">
-  <h2 class="text-3xl font-bold text-cyan-400 mb-10">Store</h2>
-  <div class="product inline-block bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-2xl p-8 shadow-lg">
-    <img src="assets/buffalo-sticker.jpg" alt="Buffalo Sticker" class="product-img mx-auto mb-6 rounded-lg shadow-md">
-    <h3 class="text-xl font-semibold mb-2">Buffalo Sticker</h3>
-    <p class="text-lg font-bold mb-4">$4.00</p>
-    <a href="https://buy.stripe.com/eVq28r3Z58WddJk7mv3oA00" target="_blank"
-       class="inline-block px-6 py-3 bg-white text-cyan-600 font-bold rounded-lg shadow-md hover:bg-gray-200 transition">
-       Buy Now
-    </a>
-  </div>
-</section>
-
-  <!-- FOOTER -->
-  <footer class="py-10">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/70">
-      <div class="h-px w-full bg-gradient-to-r from-fuchsia-300/60 via-white/30 to-cyan-300/60 mb-6"></div>
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p>© <span id="year"></span> Amanda Perez Design and Development, a DBA of CHi Hullo Li Creations LLC. All rights reserved.</p>
-        <div class="flex gap-4">
-          <a href="#services" class="hover:text-white">Services</a>
-          <a href="#about" class="hover:text-white">About</a>
-          <a href="#work" class="hover:text-white">Work</a>
-          <a href="#contact" class="hover:text-white">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Set year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('mobileMenu');
-    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
-  </script>
-</body>
-</html>
+ 1. <!DOCTYPE html>
+ 2. <html lang="en">
+ 3. <head>
+ 4.   <meta charset="utf-8" />
+ 5.   <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 6.   <title>Amanda Perez Design & Dev</title>
+ 7.   <script src="https://cdn.tailwindcss.com"></script>
+ 8.   <link rel="preconnect" href="https://fonts.googleapis.com">
+ 9.   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+10.   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+11.   <style>
+12.     :root { --accent: #00B7C2; }
+13.     html { scroll-behavior: smooth; }
+14.     body {
+15.       font-family: 'Inter', system-ui, sans-serif;
+16.       color: #1E1E1E;
+17.       background-color: #FFFFFF;
+18.       -webkit-font-smoothing: antialiased;
+19.     }
+20.
+21.     h1, h2, h3, h4 {
+22.       font-weight: 700;
+23.       color: #111827;
+24.     }
+25.
+26.     p { color: #4B5563; }
+27.
+28.     a {
+29.       color: var(--accent);
+30.       font-weight: 600;
+31.       transition: color 0.3s ease;
+32.     }
+33.     a:hover { color: #008ea1; }
+34.
+35.     /* NAV */
+36.     header .nav-wrap {
+37.       background: #ffffffcc;
+38.       border: 1px solid #e5e7eb;
+39.       backdrop-filter: blur(8px);
+40.       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+41.     }
+42.     header a { color: #111; }
+43.     header a:hover { color: var(--accent); }
+44.
+45.     /* CARD BASE */
+46.     .card {
+47.       background: #fff;
+48.       border: 1px solid #e5e7eb;
+49.       border-radius: 16px;
+50.       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+51.       padding: 24px;
+52.     }
+53.
+54.     /* BUTTONS */
+55.     .btn {
+56.       background-color: var(--accent);
+57.       color: #fff;
+58.       border-radius: 9999px;
+59.       font-weight: 600;
+60.       padding: 10px 24px;
+61.       display: inline-block;
+62.       transition: all .25s ease;
+63.     }
+64.     .btn:hover {
+65.       background-color: #0096a6;
+66.       box-shadow: 0 4px 10px rgba(0,183,194,.3);
+67.     }
+68.
+69.     /* SECTION PADDING */
+70.     section { padding-top: 5rem; padding-bottom: 5rem; }
+71.
+72.     /* DIVIDERS */
+73.     hr.section-divider {
+74.       border-top: 1px solid #E5E7EB;
+75.       margin: 5rem auto;
+76.       max-width: 80%;
+77.     }
+78.
+79.     /* FOOTER */
+80.     footer {
+81.       background: #F9FAFB;
+82.       color: #4B5563;
+83.       font-size: 0.875rem;
+84.       border-top: 1px solid #E5E7EB;
+85.       padding-top: 2rem;
+86.       padding-bottom: 2rem;
+87.     }
+88.     footer a:hover { color: var(--accent); }
+89.   </style>
+90. </head>
+91. <body>
+92.
+93.   <!-- NAVBAR -->
+94.   <header class="sticky top-0 z-50">
+95.     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+96.       <div class="nav-wrap rounded-xl px-4 py-3 flex items-center justify-between">
+97.         <a href="#home" class="font-extrabold tracking-tight text-lg md:text-xl">
+98.           Amanda Perez Design & Development
+99.         </a>
+100.        <nav class="hidden md:flex gap-8 text-sm">
+101.          <a href="#services">Services</a>
+102.          <a href="#about">About</a>
+103.          <a href="#faq">FAQ</a>
+104.          <a href="#contact">Contact</a>
+105.          <a href="#store">Store</a>
+106.          <a href="music.html">Music</a>
+107.        </nav>
+108.      </div>
+109.    </div>
+110.  </header>
+111.
+112.  <!-- HERO -->
+113.  <section id="home" class="pt-16">
+114.    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 items-center">
+115.      <div class="md:col-span-7 space-y-6">
+116.        <h1 class="text-5xl font-bold leading-tight">
+117.          Building Bold Tech with Style.
+118.        </h1>
+119.        <p class="text-lg">
+120.          I design modern, secure, and scalable web applications that help businesses grow online. 
+121.          Proudly based in Oklahoma, I blend technical skill with creative design for real-world results.
+122.        </p>
+123.        <a href="#contact" class="btn mt-4">Get in Touch</a>
+124.      </div>
+125.      <div class="md:col-span-5 flex justify-center">
+126.        <img src="assets/ap.jpg" alt="Amanda Perez" class="rounded-3xl w-64 md:w-80 border border-gray-200 shadow-lg">
+127.      </div>
+128.    </div>
+129.  </section>
+130.
+131.  <hr class="section-divider">
+132.
+133.  <!-- SERVICES -->
+134.  <section id="services">
+135.    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+136.      <h2 class="text-4xl font-bold mb-8">Services</h2>
+137.      <div class="grid md:grid-cols-3 gap-8">
+138.        <div class="card">
+139.          <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+140.          <p>Clean, easy-to-use designs that convert browsers into customers.</p>
+141.        </div>
+142.        <div class="card">
+143.          <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+144.          <p>Responsive, fast websites using React, Next.js, and Tailwind CSS.</p>
+145.        </div>
+146.        <div class="card">
+147.          <h3 class="text-xl font-semibold mb-2">Hosting & Domains</h3>
+148.          <p>Custom domain setup, DNS configuration, and fast deployment.</p>
+149.        </div>
+150.      </div>
+151.    </div>
+152.  </section>
+153.
+154.  <hr class="section-divider">
+155.
+156.  <!-- ABOUT -->
+157.  <section id="about">
+158.    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+159.      <h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
+160.      <p class="text-lg mb-4 text-center">
+161.        I’m a Native American systems analyst and developer focused on designing high-quality, scalable websites and digital tools. 
+162.        My mission is to bridge creativity and precision, bringing enterprise-grade reliability to small businesses.
+163.      </p>
+164.      <ul class="list-disc list-inside text-gray-700 space-y-2 mt-6">
+165.        <li>Web Development (React, Tailwind, ASP.NET, Blazor)</li>
+166.        <li>Workflow Automation & Power Platform</li>
+167.        <li>UI/UX and Brand Systems</li>
+168.        <li>Secure Cloud Deployments</li>
+169.        <li>Data Visualization & Analysis</li>
+170.      </ul>
+171.    </div>
+172.  </section>
+173.
+174.  <hr class="section-divider">
+175.
+176.  <!-- CONTACT -->
+177.  <section id="contact">
+178.    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+179.      <h2 class="text-4xl font-bold mb-6 text-center">Let’s Build Something Together</h2>
+180.      <p class="text-center text-gray-600 mb-8">Tell me a bit about your project and timeline.</p>
+181.      <form action="https://formspree.io/f/xqaykwry" method="POST" class="grid sm:grid-cols-2 gap-4">
+182.        <input required type="text" name="name" placeholder="Name" class="rounded-xl border px-4 py-3" />
+183.        <input required type="email" name="email" placeholder="Email" class="rounded-xl border px-4 py-3" />
+184.        <input type="text" name="company" placeholder="Company / Brand" class="sm:col-span-2 rounded-xl border px-4 py-3" />
+185.        <textarea required name="message" rows="5" placeholder="Project details…" class="sm:col-span-2 rounded-xl border px-4 py-3"></textarea>
+186.        <button type="submit" class="btn sm:col-span-2">Send Message</button>
+187.      </form>
+188.    </div>
+189.  </section>
+190.
+191.  <hr class="section-divider">
+192.
+193.  <!-- STORE -->
+194.  <section id="store" class="text-center">
+195.    <h2 class="text-4xl font-bold mb-8 text-cyan-600">Store</h2>
+196.    <div class="card inline-block">
+197.      <img src="assets/buffalo-sticker.jpg" alt="Buffalo Sticker" class="rounded-lg mb-4 w-48 mx-auto">
+198.      <h3 class="text-xl font-semibold mb-1">Buffalo Sticker</h3>
+199.      <p class="font-bold mb-3">$4.00</p>
+200.      <a href="https://buy.stripe.com/eVq28r3Z58WddJk7mv3oA00" target="_blank" class="btn">Buy Now</a>
+201.    </div>
+202.  </section>
+203.
+204.  <footer>
+205.    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between">
+206.      <p>© <span id="year"></span> Amanda Perez Design & Development, DBA Chi Hullo Li Creations LLC.</p>
+207.      <div class="flex gap-4 mt-2 sm:mt-0">
+208.        <a href="#services">Services</a>
+209.        <a href="#about">About</a>
+210.        <a href="#contact">Contact</a>
+211.      </div>
+212.    </div>
+213.  </footer>
+214.
+215.  <script>
+216.    document.getElementById('year').textContent = new Date().getFullYear();
+217.  </script>
+218.
+219. </body>
+220. </html>
