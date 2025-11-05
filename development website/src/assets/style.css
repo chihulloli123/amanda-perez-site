@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: #f2f2f2;
+  color: #222;
+}
+
+header.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('./assets/images/stones.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+}
+
+header nav h1 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d4af37;
+}
+
+.nav-links .call {
+  background: #d4af37;
+  color: #000;
+  padding: 0.4rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.hero-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+section.intro {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: #eaeaea;
+}
+
+.logo {
+  max-width: 240px;
+  margin-bottom: 2rem;
+}
+
+.intro-text {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.hours {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hours h3 {
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hours li {
+  margin: 0.3rem 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Testimonials Page */
+.testimonials {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.testimonial-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial .quote {
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial .author {
+  text-align: right;
+  font-weight: 600;
+  color: #444;
+}
+
+.submit-testimonial {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.submit-testimonial form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.submit-testimonial input,
+.submit-testimonial textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.submit-testimonial button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-testimonial button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  display: none;
+}
+.book-section .container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
