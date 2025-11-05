@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lake Luxe Cleaning Co.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- HERO -->
+  <section class="relative bg-gradient-to-b from-[#FFFFFF] to-[#F9F9F9] text-center py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-[#1B2735]">A Clean Home is a Luxury You Deserve</h1>
+      <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+        Premium residential and vacation rental cleaning for the Lake Texoma region.
+      </p>
+      <a href="#quote" class="inline-block bg-[#CBA135] text-white px-8 py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition">Book a Cleaning</a>
+    </div>
+    <img src="../assets/cleaning.jpg" alt="Luxury Home Cleaning" class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none" />
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-[#F9F9F9]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#1B2735]">Our Premium Services</h2>
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-[#CBA135] mb-2">Standard Cleaning</h3>
+          <p class="text-gray-600">Routine maintenance for homes that deserve consistent shine.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-[#CBA135] mb-2">Deep Cleaning</h3>
+          <p class="text-gray-600">Thorough and detailed cleaning from top to bottom.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-[#CBA135] mb-2">Move-In / Move-Out</h3>
+          <p class="text-gray-600">Perfect for transitions — spotless from baseboards to ceiling fans.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-[#CBA135] mb-2">Vacation / Airbnb</h3>
+          <p class="text-gray-600">Fast, reliable turnovers that keep guests coming back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-[#1B2735] mb-10">Why Choose Lake Luxe?</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="p-6 rounded-xl border border-gray-100 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#CBA135] mb-1">Trusted & Insured</h3>
+          <p class="text-gray-600 text-sm">We’re fully bonded and insured for your peace of mind.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-gray-100 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#CBA135] mb-1">Eco-Friendly</h3>
+          <p class="text-gray-600 text-sm">Non-toxic products for your family, pets, and the planet.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-gray-100 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#CBA135] mb-1">Flexible Scheduling</h3>
+          <p class="text-gray-600 text-sm">Weekly, bi-weekly, or one-time cleanings to fit your life.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-gray-100 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#CBA135] mb-1">Local Professionals</h3>
+          <p class="text-gray-600 text-sm">Proudly serving Lake Texoma with reliable local staff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <section id="quote" class="py-20 bg-gradient-to-r from-[#9BE8E1] to-[#F9F9F9]">
+    <div class="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-lg border border-gray-100">
+      <h2 class="text-3xl font-bold text-center mb-8 text-[#1B2735]">Request a Quote</h2>
+      <form action="https://formspree.io/f/xqaykwry" method="POST" class="grid md:grid-cols-2 gap-6">
+        <input type="text" name="name" placeholder="Name" required class="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#9BE8E1] focus:outline-none" />
+        <input type="email" name="email" placeholder="Email" required class="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#9BE8E1] focus:outline-none" />
+        <input type="text" name="phone" placeholder="Phone" class="border border-gray-300 rounded-lg p-3 md:col-span-2 focus:ring-2 focus:ring-[#9BE8E1] focus:outline-none" />
+        <textarea name="message" rows="5" placeholder="Tell us about your space…" required class="border border-gray-300 rounded-lg p-3 md:col-span-2 focus:ring-2 focus:ring-[#9BE8E1] focus:outline-none"></textarea>
+        <button type="submit" class="md:col-span-2 bg-[#CBA135] text-white font-semibold py-3 rounded-full hover:opacity-90 transition">Submit Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#1B2735] text-white text-center py-6">
+    <p class="text-sm">© <span id="year"></span> Lake Luxe Cleaning Co. — Proudly Serving Lake Texoma & Surrounding Areas</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
