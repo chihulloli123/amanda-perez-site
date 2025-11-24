@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Start Your Project – AP Design & Development</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --accent: #00B7C2; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1E1E1E;
+      background: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); font-weight: 600; transition: 0.2s; }
+    a:hover { color: #008ea1; }
+
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 9999px;
+      font-weight: 600;
+      display: inline-block;
+      transition: 0.25s ease;
+    }
+    .btn:hover { background-color: #0097a8; box-shadow: 0 4px 10px rgba(0,183,194,0.35); }
+
+    .nav-wrap {
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    hr.section-divider {
+      border-top: 1px solid #E5E7EB;
+      margin: 5rem auto;
+      max-width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="nav-wrap rounded-xl px-4 py-3 flex items-center justify-between">
+        
+        <a href="index.html#home" class="font-extrabold tracking-tight text-lg md:text-xl">
+          Amanda Perez Design & Development
+        </a>
+
+        <nav class="hidden md:flex gap-8 text-sm">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#store">Store</a>
+          <a href="templates.html">Templates</a>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- INTAKE PAGE CONTENT -->
+  <section class="pt-20 pb-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+
+      <h1 class="text-4xl font-bold mb-6">Start Your Project</h1>
+      <p class="text-lg text-gray-600 mb-10">
+        Fill out the intake form below so I can get the details I need to begin your project.  
+        Once your form is submitted, I’ll reach out to schedule our call or next steps.
+      </p>
+
+      <a href="https://forms.gle/Ej7GqVSLoCJtaMan6" 
+         class="btn text-lg px-8 py-3 mb-12 inline-block"
+         target="_blank">
+         Start Your Intake Form
+      </a>
+
+      <p class="text-sm text-gray-500 mt-6">
+        The form will open in a new window so you can upload photos and files securely.
+      </p>
+
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- FOOTER -->
+  <footer class="mt-16">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between py-6 text-sm text-gray-700">
+      <p>© <span id="year"></span> Amanda Perez Design & Development — Chi Hullo Li Creations LLC.</p>
+      <div class="flex gap-4 mt-2 sm:mt-0">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
