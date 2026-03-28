@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Start Your Project — Amanda Perez Design & Development</title>
+  <title>Amanda Perez — Small Business Online Presence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,100 +15,352 @@
       --off:     #F8F9FB;
       --border:  #E8EAED;
       --mid:     #6B7280;
+      --dark:    #111827;
       --ink:     #0D0D1A;
       --teal:    #03B7C2;
       --blue:    #4374BA;
       --grad:    linear-gradient(135deg, #03B7C2 0%, #4374BA 100%);
+      --grad-soft: linear-gradient(135deg, rgba(3,183,194,0.07) 0%, rgba(67,116,186,0.07) 100%);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
       --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
       --shadow-lg: 0 16px 48px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.05);
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', system-ui, sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
     .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
     @media (max-width: 640px) { .container { padding: 0 20px; } }
-    .grad-text { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.22s ease; cursor: pointer; border: none; }
-    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 4px 20px rgba(3,183,194,0.25); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(3,183,194,0.35); }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 8px;
+      font-family: 'Poppins', sans-serif; font-size: 0.875rem; font-weight: 600;
+      text-decoration: none; transition: all 0.22s ease; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--grad); color: #fff;
+      box-shadow: 0 4px 20px rgba(3,183,194,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(3,183,194,0.35); }
+    .btn-outline {
+      background: transparent; color: var(--ink);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 88px; }
     main { padding-top: 88px; }
+    .nav-logo svg { height: 48px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 2px; }
-    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--mid); text-decoration: none; padding: 7px 14px; border-radius: 6px; transition: all 0.18s; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; color: var(--mid);
+      text-decoration: none; padding: 7px 14px; border-radius: 6px; transition: all 0.18s;
+    }
     .nav-links a:hover { color: var(--ink); background: var(--off); }
     .nav-cta { background: var(--grad) !important; color: #fff !important; margin-left: 10px; }
-    .hamburger { display: none; background: none; border: 1.5px solid var(--border); border-radius: 6px; width: 38px; height: 38px; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-cta:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(3,183,194,0.3) !important; background: var(--off) !important; }
+
+    .hamburger {
+      display: none; background: none; border: 1.5px solid var(--border); border-radius: 6px;
+      width: 38px; height: 38px; cursor: pointer; flex-direction: column;
+      align-items: center; justify-content: center; gap: 5px;
+    }
     .hamburger span { display: block; width: 18px; height: 1.5px; background: var(--ink); }
-    .mobile-nav { display: none; flex-direction: column; background: var(--white); border-top: 1px solid var(--border); padding: 16px 20px; }
+    .mobile-nav {
+      display: none; flex-direction: column; background: var(--white);
+      border-top: 1px solid var(--border); padding: 16px 20px;
+    }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-size: 0.875rem; font-weight: 500; color: var(--ink); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .mobile-nav a {
+      font-size: 0.875rem; font-weight: 500; color: var(--ink);
+      text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
     .mobile-nav a:last-child { border-bottom: none; color: var(--teal); }
+
     @media (max-width: 800px) { .nav-links { display: none; } .hamburger { display: flex; } }
 
-    /* PAGE HERO */
-    .page-hero { padding: 80px 0 60px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
-    .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 52px 52px; opacity: 0.4; pointer-events: none; }
-    .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, var(--white), transparent); pointer-events: none; }
-    .page-hero-inner { position: relative; z-index: 1; max-width: 680px; }
-    .page-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.45s ease 0.05s forwards; }
-    .page-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--grad); border-radius: 2px; }
-    .page-h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.45s ease 0.12s forwards; }
-    .page-sub { font-size: 1rem; font-weight: 300; color: var(--mid); line-height: 1.8; max-width: 540px; opacity: 0; animation: fadeUp 0.45s ease 0.2s forwards; }
+    /* ── HERO ── */
+    .hero { padding: 100px 0 80px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 52px 52px; opacity: 0.45; pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 140px;
+      background: linear-gradient(to top, var(--white), transparent); pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center; position: relative; z-index: 1;
+    }
+    @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; gap: 48px; } }
 
-    /* CONTENT */
-    .content-grid { display: grid; grid-template-columns: 1fr 380px; gap: 64px; padding: 72px 0 96px; align-items: start; }
-    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; gap: 48px; } }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 28px; height: 2px;
+      background: var(--grad); border-radius: 2px;
+    }
+    .hero-h1 {
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 800;
+      line-height: 1.08; letter-spacing: -0.028em; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.13s forwards;
+    }
+    .hero-sub {
+      font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--mid);
+      max-width: 440px; margin-bottom: 40px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.21s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.5s ease 0.29s forwards;
+    }
 
-    /* CTA CARD */
-    .cta-card { background: var(--ink); border-radius: 20px; overflow: hidden; position: relative; }
-    .cta-card::before { content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(3,183,194,0.18) 0%, transparent 65%); pointer-events: none; }
-    .cta-card-top { padding: 40px 36px 32px; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; z-index: 1; }
-    .cta-card-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
-    .cta-card-title { font-size: 1.4rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 12px; }
-    .cta-card-sub { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 28px; }
-    .cta-main-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border-radius: 10px; background: var(--grad); color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 32px rgba(3,183,194,0.3); transition: all 0.22s; }
-    .cta-main-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(3,183,194,0.4); }
-    .cta-note { font-size: 0.72rem; color: rgba(255,255,255,0.32); text-align: center; margin-top: 14px; font-weight: 300; }
-    .cta-card-bottom { padding: 28px 36px 36px; position: relative; z-index: 1; }
-    .cta-card-meta-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
-    .cta-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .cta-meta-row:last-child { margin-bottom: 0; }
-    .cta-meta-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(3,183,194,0.15); border: 1px solid rgba(3,183,194,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
-    .cta-meta-text strong { display: block; font-size: 0.8rem; font-weight: 600; color: var(--white); }
-    .cta-meta-text span { font-size: 0.73rem; color: rgba(255,255,255,0.4); font-weight: 300; }
+    /* Hero card */
+    .hero-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      box-shadow: var(--shadow-lg); overflow: hidden;
+      opacity: 0; animation: fadeLeft 0.6s ease 0.38s forwards;
+    }
+    @media (max-width: 860px) { .hero-card { display: none; } }
+    .card-bar {
+      padding: 14px 18px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px; background: var(--off);
+    }
+    .dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #FF5F57; } .dot-y { background: #FEBC2E; } .dot-g { background: #28C840; }
+    .card-name { flex: 1; text-align: center; font-size: 0.72rem; font-weight: 500; color: var(--mid); }
+    .card-body { padding: 24px; }
+    .card-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+    }
+    .card-row:last-of-type { border-bottom: none; }
+    .row-label { font-weight: 500; color: var(--mid); }
+    .row-val { font-weight: 600; }
+    .row-badge {
+      background: var(--grad-soft); border: 1px solid rgba(3,183,194,0.2);
+      color: var(--teal); font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.05em; padding: 3px 10px; border-radius: 20px;
+    }
+    .row-check {
+      width: 20px; height: 20px; border-radius: 50%; background: var(--grad);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 0.6rem;
+    }
+    .card-progress { margin-top: 20px; }
+    .prog-labels { display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 500; color: var(--mid); margin-bottom: 8px; }
+    .prog-bar { height: 6px; background: var(--off); border-radius: 99px; overflow: hidden; }
+    .prog-fill { height: 100%; background: var(--grad); border-radius: 99px; width: 72%; }
 
-    /* STEPS */
-    .expect-section h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .expect-section > p { font-size: 0.9rem; font-weight: 300; color: var(--mid); line-height: 1.8; margin-bottom: 40px; }
-    .expect-steps { display: flex; flex-direction: column; }
-    .expect-step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .expect-step:last-child { border-bottom: none; }
-    .expect-step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-    .expect-num { width: 40px; height: 40px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: white; }
-    .expect-line { width: 1px; flex: 1; min-height: 20px; background: var(--border); margin-top: 8px; }
-    .expect-step:last-child .expect-line { display: none; }
-    .expect-content { padding-top: 8px; }
-    .expect-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
-    .expect-desc { font-size: 0.82rem; font-weight: 300; color: var(--mid); line-height: 1.7; }
+    /* ── PROOF BAR ── */
+    .proof-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 22px 0; background: var(--off); }
+    .proof-inner { display: flex; align-items: center; gap: 40px; justify-content: center; flex-wrap: wrap; }
+    .proof-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--mid); }
+    .proof-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .proof-stat { text-align: center; }
+    .proof-num {
+      font-size: 1.5rem; font-weight: 800; line-height: 1;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .proof-lbl { font-size: 0.68rem; font-weight: 500; color: var(--mid); margin-top: 2px; }
 
-    /* SCOPE MINI */
-    .scope-mini { margin-top: 56px; }
-    .scope-mini h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .scope-mini > p { font-size: 0.85rem; font-weight: 300; color: var(--mid); margin-bottom: 28px; }
-    .scope-grid { display: flex; flex-direction: column; gap: 12px; }
-    .scope-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.2s; }
-    .scope-row:hover { border-color: var(--teal); }
-    .scope-left { display: flex; align-items: center; gap: 14px; }
-    .scope-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); flex-shrink: 0; }
-    .scope-name { font-size: 0.875rem; font-weight: 600; }
-    .scope-sub { font-size: 0.72rem; color: var(--mid); font-weight: 400; }
-    .scope-label { font-size: 0.72rem; font-weight: 700; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; }
-    .scope-note { margin-top: 16px; padding: 14px 18px; background: var(--off); border: 1px solid var(--border); border-radius: 8px; font-size: 0.78rem; font-weight: 300; color: var(--mid); line-height: 1.6; }
+    /* ── SECTIONS ── */
+    .section { padding: 96px 0; }
+    .section-alt { background: var(--off); }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+    .section-h2 { font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 800; letter-spacing: -0.022em; line-height: 1.14; margin-bottom: 16px; }
+    .section-sub { font-size: 0.95rem; font-weight: 300; color: var(--mid); line-height: 1.8; max-width: 520px; }
+    .section-header { margin-bottom: 56px; }
 
-    /* FOOTER */
+    /* ── BUCKETS ── */
+    .buckets-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media (max-width: 900px) { .buckets-grid { grid-template-columns: 1fr; } }
+
+    .bucket-card {
+      background: var(--off); border: 1px solid var(--border); border-radius: 16px;
+      padding: 40px 32px; display: flex; flex-direction: column; gap: 16px;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    }
+    .bucket-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .bucket-card--mid {
+      background: var(--ink); border-color: var(--ink);
+      position: relative; overflow: hidden;
+    }
+    .bucket-card--mid::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 240px; height: 240px;
+      background: radial-gradient(ellipse, rgba(3,183,194,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .bucket-num {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--teal);
+    }
+    .bucket-title {
+      font-size: 1.15rem; font-weight: 800; letter-spacing: -0.015em; line-height: 1.3;
+    }
+    .bucket-card--mid .bucket-title { color: var(--white); }
+    .bucket-desc {
+      font-size: 0.845rem; font-weight: 300; color: var(--mid); line-height: 1.8; flex: 1;
+    }
+    .bucket-card--mid .bucket-desc { color: rgba(255,255,255,0.55); }
+    .bucket-examples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .bucket-tag {
+      font-size: 0.68rem; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+      border: 1.5px solid var(--border); color: var(--mid);
+    }
+    .bucket-card--mid .bucket-tag { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.45); }
+
+    /* ── CAPABILITY STRIP ── */
+    .cap-strip {
+      margin-top: 40px; padding: 28px 36px;
+      border: 1px solid var(--border); border-radius: 12px;
+      display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+      background: var(--off);
+    }
+    .cap-strip-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.10em;
+      text-transform: uppercase; color: var(--mid); white-space: nowrap;
+    }
+    .cap-list { display: flex; flex-wrap: wrap; gap: 8px 28px; flex: 1; }
+    .cap-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; font-weight: 500; color: var(--ink);
+    }
+    .cap-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+      background: var(--grad);
+    }
+
+    /* ── WORK ── */
+    .work-grid { display: grid; grid-template-columns: 3fr 2fr 2fr; gap: 24px; }
+    @media (max-width: 1000px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .work-grid { grid-template-columns: 1fr; } }
+
+    .work-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 40px 36px; display: flex; flex-direction: column; justify-content: space-between;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    }
+    .work-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .work-card--feature { border-color: rgba(3,183,194,0.25); background: linear-gradient(160deg, rgba(3,183,194,0.04), rgba(67,116,186,0.03)); }
+    .work-tag {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 14px;
+    }
+    .work-title { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.015em; line-height: 1.3; margin-bottom: 14px; }
+    .work-desc { font-size: 0.84rem; font-weight: 300; color: var(--mid); line-height: 1.8; }
+    .work-card-top { margin-bottom: 28px; }
+    .work-card-bottom { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .work-detail { display: flex; align-items: center; gap: 7px; font-size: 0.76rem; font-weight: 500; color: var(--mid); }
+    .work-detail-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); flex-shrink: 0; }
+
+    /* ── RESCUE BAR ── */
+    .rescue-bar {
+      margin-top: 24px; padding: 32px 40px;
+      background: var(--ink); border-radius: 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    .rescue-bar::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(ellipse, rgba(3,183,194,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .rescue-bar-left { position: relative; z-index: 1; }
+    .rescue-bar-title { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .rescue-bar-sub { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.48); line-height: 1.7; max-width: 560px; }
+
+    .timeline { display: grid; grid-template-columns: repeat(5,1fr); position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; top: 27px; left: 10%; right: 10%;
+      height: 2px; background: var(--grad);
+    }
+    @media (max-width: 700px) { .timeline { grid-template-columns: 1fr 1fr; gap: 32px; } .timeline::before { display: none; } }
+    .tl-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 8px; }
+    .tl-num {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 700; color: var(--mid);
+      margin-bottom: 20px; position: relative; z-index: 1; transition: all 0.25s;
+    }
+    .tl-step:hover .tl-num { background: var(--grad); color: white; border-color: transparent; box-shadow: 0 4px 16px rgba(3,183,194,0.3); }
+    .tl-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+    .tl-detail { font-size: 0.72rem; font-weight: 300; color: var(--mid); line-height: 1.6; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center; }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; border-radius: 16px; display: block; position: relative; z-index: 1; box-shadow: var(--shadow-lg); }
+    .about-deco { position: absolute; bottom: -16px; right: -16px; width: 100%; height: 100%; border-radius: 16px; border: 2px solid var(--border); z-index: 0; }
+    .about-badge {
+      position: absolute; bottom: 20px; left: -20px; background: var(--white);
+      border: 1px solid var(--border); border-radius: 12px; padding: 14px 20px;
+      z-index: 2; box-shadow: var(--shadow-md);
+    }
+    .about-badge-num { font-size: 1.5rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+    .about-badge-lbl { font-size: 0.68rem; font-weight: 500; color: var(--mid); }
+    .about-body { font-size: 0.95rem; font-weight: 300; color: var(--mid); line-height: 1.9; margin: 20px 0 32px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 0.72rem; font-weight: 600; padding: 6px 14px; border-radius: 6px;
+      border: 1.5px solid var(--border); color: var(--mid); transition: all 0.18s;
+    }
+    .tag:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── CTA SECTION ── */
+    .cta-section { padding: 100px 0; background: var(--ink); position: relative; overflow: hidden; }
+    .cta-section::before {
+      content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, rgba(3,183,194,0.13) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+    @media (max-width: 860px) { .cta-inner { grid-template-columns: 1fr; gap: 48px; } }
+    .cta-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; color: var(--white); margin-bottom: 20px; }
+    .cta-sub { font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 36px; }
+    .cta-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; }
+    .cta-box-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 24px; }
+    .cta-step { display: flex; gap: 16px; margin-bottom: 20px; }
+    .cta-step:last-child { margin-bottom: 0; }
+    .cta-step-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; flex-shrink: 0; }
+    .cta-step-text strong { display: block; font-size: 0.82rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+    .cta-step-text span { font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.42); }
+
+    /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 32px 0; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-copy { font-size: 0.75rem; color: var(--mid); }
@@ -116,29 +368,33 @@
     .footer-links a { font-size: 0.75rem; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.18s; }
     .footer-links a:hover { color: var(--teal); }
 
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-    .reveal { opacity:0; transform:translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    @keyframes fadeLeft { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
+    .reveal { opacity:0; transform:translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity:1; transform:none; }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" aria-label="Amanda Perez Design & Development">
+      <a href="#home" aria-label="Amanda Perez Design & Development">
         <svg viewBox="0 0 720 180" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="height:48px;width:auto;display:block;">
           <defs>
-            <linearGradient id="ilg-a" x1="321.4" y1="-45.7" x2="534.4" y2="167.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#03b7c2"/><stop offset="1" stop-color="#4374ba"/></linearGradient>
+            <linearGradient id="lg-a" x1="321.4" y1="-45.7" x2="534.4" y2="167.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#03b7c2"/><stop offset="1" stop-color="#4374ba"/></linearGradient>
+            <linearGradient id="lg-b" x1="60.2" y1="94.2" x2="166.7" y2="94.2" xlink:href="#lg-a"/>
           </defs>
-          <rect fill="url(#ilg-a)" x="220.8" y="92" width="480.7" height="4.1" rx="1.4"/>
+          <rect fill="url(#lg-a)" x="220.8" y="92" width="480.7" height="4.1" rx="1.4"/>
           <g fill="#111827"><path d="M247.4,78.6h-15.7l-2.7,7.7h-6.4l13.5-37.6h7.1l13.5,37.6h-6.5l-2.7-7.7ZM245.6,73.6l-6.1-17.5-6.2,17.5h12.3Z"/><path d="M308.9,48.7v37.6h-6.2v-25.7l-11.5,25.7h-4.3l-11.5-25.7v25.7h-6.2v-37.6h6.6l13.2,29.5,13.1-29.5h6.6Z"/><path d="M346.6,78.6h-15.7l-2.7,7.7h-6.4l13.5-37.6h7.1l13.5,37.6h-6.5l-2.7-7.7ZM344.9,73.6l-6.1-17.5-6.2,17.5h12.3Z"/><path d="M399.5,86.3h-6.2l-18.5-28v28h-6.2v-37.6h6.2l18.5,28v-28h6.2v37.6Z"/><path d="M437.3,51c3,1.5,5.3,3.7,7,6.6,1.6,2.9,2.5,6.2,2.5,10s-.8,7.1-2.5,9.9c-1.6,2.8-4,5-7,6.5-3,1.5-6.5,2.2-10.5,2.2h-12.3v-37.6h12.3c4,0,7.5.8,10.5,2.3ZM436.9,77.7c2.3-2.4,3.5-5.7,3.5-10.1s-1.2-7.8-3.5-10.2c-2.3-2.4-5.7-3.7-10.1-3.7h-6.1v27.5h6.1c4.4,0,7.8-1.2,10.1-3.6Z"/><path d="M482.5,78.6h-15.7l-2.7,7.7h-6.4l13.5-37.6h7.1l13.5,37.6h-6.5l-2.7-7.7ZM480.8,73.6l-6.1-17.5-6.2,17.5h12.3Z"/><path d="M550.4,65.3c-.9,1.7-2.3,3.1-4.3,4.1-2,1.1-4.5,1.6-7.6,1.6h-6.8v15.2h-6.2v-37.6h13c2.9,0,5.3.5,7.3,1.5,2,1,3.5,2.3,4.5,4,1,1.7,1.5,3.6,1.5,5.7s-.5,3.7-1.4,5.4ZM543.7,64.4c1.2-1.1,1.7-2.6,1.7-4.5,0-4.1-2.3-6.2-7-6.2h-6.8v12.3h6.8c2.3,0,4.1-.5,5.2-1.6Z"/><path d="M570.8,53.7v11h13v5h-13v11.5h14.6v5h-20.8v-37.6h20.8v5h-14.6Z"/><path d="M619.4,86.3l-8.6-15h-4.7v15h-6.2v-37.6h13c2.9,0,5.3.5,7.3,1.5,2,1,3.5,2.4,4.5,4.1,1,1.7,1.5,3.6,1.5,5.7s-.7,4.7-2.1,6.7c-1.4,2-3.6,3.4-6.6,4.1l9.3,15.6h-7.4ZM606.1,66.3h6.8c2.3,0,4-.6,5.2-1.7,1.2-1.2,1.8-2.7,1.8-4.6s-.6-3.5-1.7-4.6c-1.2-1.1-2.9-1.6-5.2-1.6h-6.8v12.6Z"/><path d="M647.2,53.7v11h13v5h-13v11.5h14.6v5h-20.8v-37.6h20.8v5h-14.6Z"/><path d="M682.3,80.9h17.5v5.3h-24.7v-4.8l17.4-27.4h-17.4v-5.3h24.7v4.8l-17.5,27.4Z"/></g>
-          <g fill="#6B7280"><path d="M235.1,105.1c1.9,1,3.3,2.3,4.4,4.1,1,1.8,1.5,3.9,1.5,6.3s-.5,4.5-1.5,6.2c-1,1.8-2.5,3.1-4.4,4.1-1.9.9-4.1,1.4-6.6,1.4h-7.7v-23.6h7.7c2.5,0,4.7.5,6.6,1.4ZM234.8,121.8c1.5-1.5,2.2-3.6,2.2-6.3s-.7-4.9-2.2-6.4c-1.5-1.5-3.6-2.3-6.3-2.3h-3.8v17.3h3.8c2.8,0,4.9-.7,6.3-2.2Z"/><path d="M253.1,106.8v6.9h8.1v3.2h-8.1v7.2h9.2v3.2h-13v-23.6h13v3.2h-9.2Z"/><path d="M300.1,103.7v23.6h-3.9v-23.6h3.9Z"/><path d="M359.5,127.2h-3.9l-11.6-17.6v17.6h-3.9v-23.6h3.9l11.6,17.6v-17.6h3.9v23.6Z"/><path d="M439.8,105.1c1.9,1,3.3,2.3,4.4,4.1,1,1.8,1.5,3.9,1.5,6.3s-.5,4.5-1.5,6.2-2.5,3.1-4.4,4.1-4.1,1.4-6.6,1.4h-7.7v-23.6h7.7c2.5,0,4.7.5,6.6,1.4ZM439.5,121.8c1.5-1.5,2.2-3.6,2.2-6.3s-.7-4.9-2.2-6.4c-1.5-1.5-3.6-2.3-6.3-2.3h-3.8v17.3h3.8c2.8,0,4.9-.7,6.3-2.2Z"/><path d="M457.7,106.8v6.9h8.1v3.2h-8.1v7.2h9.2v3.2h-13v-23.6h13v3.2h-9.2Z"/><path d="M529.9,124.1h8v3.1h-11.8v-23.6h3.9v20.4Z"/><path d="M550.2,125.9c-1.8-1-3.3-2.5-4.4-4.3-1.1-1.8-1.6-3.9-1.6-6.2s.5-4.4,1.6-6.2c1.1-1.8,2.5-3.3,4.4-4.3s3.9-1.5,6.1-1.5,4.2.5,6.1,1.5c1.8,1,3.3,2.5,4.4,4.3,1.1,1.8,1.6,3.9,1.6,6.2s-.5,4.4-1.6,6.2c-1.1,1.8-2.5,3.3-4.4,4.3-1.8,1-3.9,1.5-6.1,1.5s-4.2-.5-6.1-1.5ZM560.4,123.1c1.2-.7,2.2-1.7,2.9-3.1.7-1.3,1-2.9,1-4.6s-.3-3.3-1-4.6c-.7-1.3-1.6-2.3-2.9-3-1.2-.7-2.6-1.1-4.2-1.1s-3,.4-4.2,1.1c-1.2.7-2.2,1.7-2.9,3-.7,1.3-1,2.8-1,4.6s.3,3.3,1,4.6c.7,1.3,1.6,2.3,2.9,3.1s2.6,1.1,4.2,1.1,3-.4,4.2-1.1Z"/><path d="M701.5,103.7v3.2h-6.3v20.4h-3.9v-20.4h-6.3v-3.2h16.4Z"/></g>
+          <g fill="#6B7280"><path d="M235.1,105.1c1.9,1,3.3,2.3,4.4,4.1,1,1.8,1.5,3.9,1.5,6.3s-.5,4.5-1.5,6.2c-1,1.8-2.5,3.1-4.4,4.1-1.9.9-4.1,1.4-6.6,1.4h-7.7v-23.6h7.7c2.5,0,4.7.5,6.6,1.4ZM234.8,121.8c1.5-1.5,2.2-3.6,2.2-6.3s-.7-4.9-2.2-6.4c-1.5-1.5-3.6-2.3-6.3-2.3h-3.8v17.3h3.8c2.8,0,4.9-.7,6.3-2.2Z"/><path d="M253.1,106.8v6.9h8.1v3.2h-8.1v7.2h9.2v3.2h-13v-23.6h13v3.2h-9.2Z"/><path d="M274.8,126.6c-1.3-.6-2.3-1.3-3-2.4-.7-1-1.1-2.2-1.1-3.6h4.1c0,1,.5,1.9,1.2,2.5.7.7,1.7,1,3,1s2.4-.3,3.1-1,1.1-1.5,1.1-2.5-.2-1.4-.7-1.9-.9-1-1.7-1.2-1.6-.6-2.9-.9c-1.5-.4-2.8-.8-3.7-1.2-1-.4-1.8-1.1-2.5-1.9-.7-.9-1-2.1-1-3.5s.3-2.5,1-3.6c.7-1,1.6-1.8,2.8-2.3s2.6-.8,4.2-.8c2.3,0,4.2.6,5.6,1.7,1.5,1.1,2.3,2.7,2.4,4.7h-4.3c0-.9-.5-1.6-1.2-2.2-.7-.6-1.7-.9-2.9-.9s-2,.3-2.7.8-1.1,1.4-1.1,2.4.2,1.3.7,1.8c.4.5,1,.8,1.7,1.1.7.3,1.6.6,2.8.9,1.6.4,2.8.9,3.8,1.3,1,.4,1.8,1.1,2.5,2,.7.9,1,2.1,1,3.6s-.3,2.3-1,3.4c-.6,1.1-1.6,1.9-2.8,2.6-1.2.6-2.7,1-4.4,1s-3-.3-4.3-.8Z"/><path d="M300.1,103.7v23.6h-3.9v-23.6h3.9Z"/><path d="M326.6,110.5c-.6-1.2-1.5-2.1-2.5-2.7-1.1-.6-2.3-.9-3.8-.9s-2.9.4-4.2,1.1c-1.2.7-2.2,1.7-2.9,3-.7,1.3-1,2.8-1,4.5s.3,3.2,1,4.5c.7,1.3,1.6,2.3,2.9,3,1.2.7,2.6,1.1,4.2,1.1s3.8-.6,5.1-1.8c1.3-1.2,2.1-2.8,2.4-4.8h-8.8v-3.1h13v3c-.2,1.8-.9,3.5-1.9,5.1-1.1,1.5-2.4,2.8-4.1,3.7-1.7.9-3.6,1.4-5.6,1.4s-4.2-.5-6.1-1.5c-1.8-1-3.3-2.5-4.4-4.3-1.1-1.8-1.6-3.9-1.6-6.2s.5-4.4,1.6-6.2c1.1-1.8,2.5-3.3,4.4-4.3,1.8-1,3.9-1.5,6.1-1.5s4.7.6,6.7,1.8,3.4,3,4.3,5.2h-4.6Z"/><path d="M359.5,127.2h-3.9l-11.6-17.6v17.6h-3.9v-23.6h3.9l11.6,17.6v-17.6h3.9v23.6Z"/><path d="M400.3,127.2l-2.9-2.9c-1.1,1.1-2.4,2-3.7,2.5s-2.8.8-4.5.8-3.2-.3-4.4-.9-2.3-1.4-3-2.5c-.7-1.1-1.1-2.4-1.1-3.8s.5-3.1,1.4-4.4c.9-1.3,2.3-2.3,4.1-3-.7-.8-1.1-1.5-1.4-2.2-.3-.7-.4-1.5-.4-2.3s.3-2,.8-2.8c.5-.8,1.3-1.5,2.3-1.9s2.1-.7,3.5-.7,2.5.3,3.4.8c.9.5,1.6,1.2,2.1,2.1.5.9.6,1.9.6,3h-3.9c0-.8-.2-1.5-.6-1.9-.4-.5-1-.7-1.8-.7s-1.4.2-1.8.7c-.5.4-.7,1-.7,1.6s.2,1.2.5,1.8c.4.6,1,1.4,1.8,2.3l6.2,6.2,2.4-4h4.2l-3.1,5.2-.8,1.4,5.7,5.7h-5.1ZM394.9,121.8l-6.2-6.3c-2.7,1.1-4,2.7-4,4.8s.4,2.1,1.3,2.9c.9.8,2,1.2,3.3,1.2,2.1,0,4-.9,5.6-2.6Z"/><path d="M439.8,105.1c1.9,1,3.3,2.3,4.4,4.1,1,1.8,1.5,3.9,1.5,6.3s-.5,4.5-1.5,6.2-2.5,3.1-4.4,4.1-4.1,1.4-6.6,1.4h-7.7v-23.6h7.7c2.5,0,4.7.5,6.6,1.4ZM439.5,121.8c1.5-1.5,2.2-3.6,2.2-6.3s-.7-4.9-2.2-6.4c-1.5-1.5-3.6-2.3-6.3-2.3h-3.8v17.3h3.8c2.8,0,4.9-.7,6.3-2.2Z"/><path d="M457.7,106.8v6.9h8.1v3.2h-8.1v7.2h9.2v3.2h-13v-23.6h13v3.2h-9.2Z"/><path d="M496.3,103.7l-8.8,23.6h-4.5l-8.9-23.6h4.1l7,19.6,7-19.6h4.1Z"/><path d="M507.8,106.8v6.9h8.1v3.2h-8.1v7.2h9.2v3.2h-13v-23.6h13v3.2h-9.2Z"/><path d="M529.9,124.1h8v3.1h-11.8v-23.6h3.9v20.4Z"/><path d="M550.2,125.9c-1.8-1-3.3-2.5-4.4-4.3-1.1-1.8-1.6-3.9-1.6-6.2s.5-4.4,1.6-6.2c1.1-1.8,2.5-3.3,4.4-4.3s3.9-1.5,6.1-1.5,4.2.5,6.1,1.5c1.8,1,3.3,2.5,4.4,4.3,1.1,1.8,1.6,3.9,1.6,6.2s-.5,4.4-1.6,6.2c-1.1,1.8-2.5,3.3-4.4,4.3-1.8,1-3.9,1.5-6.1,1.5s-4.2-.5-6.1-1.5ZM560.4,123.1c1.2-.7,2.2-1.7,2.9-3.1.7-1.3,1-2.9,1-4.6s-.3-3.3-1-4.6c-.7-1.3-1.6-2.3-2.9-3-1.2-.7-2.6-1.1-4.2-1.1s-3,.4-4.2,1.1c-1.2.7-2.2,1.7-2.9,3-.7,1.3-1,2.8-1,4.6s.3,3.3,1,4.6c.7,1.3,1.6,2.3,2.9,3.1s2.6,1.1,4.2,1.1,3-.4,4.2-1.1Z"/><path d="M592.1,114.1c-.6,1.1-1.5,1.9-2.7,2.6-1.2.7-2.8,1-4.8,1h-4.3v9.6h-3.9v-23.6h8.1c1.8,0,3.3.3,4.6.9,1.3.6,2.2,1.5,2.8,2.5.6,1.1.9,2.2.9,3.6s-.3,2.3-.8,3.4ZM587.9,113.5c.7-.7,1.1-1.6,1.1-2.8,0-2.6-1.5-3.9-4.4-3.9h-4.3v7.7h4.3c1.5,0,2.6-.3,3.3-1Z"/><path d="M625.8,103.7v23.6h-3.9v-16.1l-7.2,16.1h-2.7l-7.2-16.1v16.1h-3.9v-23.6h4.2l8.3,18.5,8.2-18.5h4.1Z"/><path d="M639.1,106.8v6.9h8.1v3.2h-8.1v7.2h9.2v3.2h-13v-23.6h13v3.2h-9.2Z"/><path d="M676.8,127.2h-3.9l-11.6-17.6v17.6h-3.9v-23.6h3.9l11.6,17.6v-17.6h3.9v23.6Z"/><path d="M701.5,103.7v3.2h-6.3v20.4h-3.9v-20.4h-6.3v-3.2h16.4Z"/></g>
         </svg>
       </a>
       <div class="nav-links">
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
         <a href="intake.html" class="btn btn-primary nav-cta" style="padding:9px 20px;font-size:0.82rem;">Start a Project →</a>
       </div>
       <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
@@ -147,96 +403,281 @@
     </div>
   </div>
   <div class="mobile-nav" id="mob">
-    <a href="index.html#about">About</a>
-    <a href="index.html#services">Services</a>
+    <a href="#about" onclick="document.getElementById('mob').classList.remove('open')">About</a>
+    <a href="#services" onclick="document.getElementById('mob').classList.remove('open')">Services</a>
     <a href="intake.html">Start a Project →</a>
   </div>
 </nav>
 
 <main>
-  <div class="page-hero">
+
+  <!-- HERO -->
+  <section id="home" class="hero">
     <div class="container">
-      <div class="page-hero-inner">
-        <div class="page-eyebrow">New Project</div>
-        <h1 class="page-h1">Let's build<br><span class="grad-text">your website.</span></h1>
-        <p class="page-sub">Fill out the intake form — it takes about 5 minutes and gives me everything I need to get started. I'll follow up within one business day.</p>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">Small Business Online Presence</div>
+          <h1 class="hero-h1">Your business is real.<br><span class="grad-text">Your website should be too.</span></h1>
+          <p class="hero-sub">Whether you're selling products, running a service, or leading a community — I help small business owners get online, look professional, and stop losing customers to a broken or missing web presence.</p>
+          <div class="hero-actions">
+            <a href="intake.html" class="btn btn-primary">Start Your Project →</a>
+            <a href="#services" class="btn btn-outline">See What I Do</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-bar">
+            <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+            <div class="card-name">new-project.init</div>
+          </div>
+          <div class="card-body">
+            <div class="card-row"><span class="row-label">Package</span><span class="row-badge">Shopify Store</span></div>
+            <div class="card-row"><span class="row-label">Kickoff</span><div class="row-check">✓</div></div>
+            <div class="card-row"><span class="row-label">Products Loaded</span><div class="row-check">✓</div></div>
+            <div class="card-row"><span class="row-label">Launch</span><span class="row-badge">In Progress</span></div>
+            <div class="card-row"><span class="row-label">Shipping Config</span><span class="row-val" style="color:var(--border);">—</span></div>
+            <div class="card-row"><span class="row-label">Go Live</span><span class="row-val" style="color:var(--border);">—</span></div>
+            <div class="card-progress">
+              <div class="prog-labels"><span>Active build</span><span>68%</span></div>
+              <div class="prog-bar"><div class="prog-fill" style="width:68%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <div class="proof-bar">
+    <div class="container">
+      <div class="proof-inner">
+        <div class="proof-label">By the numbers</div>
+        <div class="proof-stats">
+          <div class="proof-stat">
+            <div class="proof-num">4+</div>
+            <div class="proof-lbl">Active clients</div>
+          </div>
+          <div class="proof-stat">
+            <div class="proof-num">3</div>
+            <div class="proof-lbl">Industries served</div>
+          </div>
+          <div class="proof-stat">
+            <div class="proof-num">5+</div>
+            <div class="proof-lbl">Product launches</div>
+          </div>
+          <div class="proof-stat">
+            <div class="proof-num">1</div>
+            <div class="proof-lbl">Business day response</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="content-grid">
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
 
-      <div>
-        <div class="expect-section reveal">
-          <h2>What to expect</h2>
-          <p>A straightforward process with no surprises.</p>
-          <div class="expect-steps">
-            <div class="expect-step">
-              <div class="expect-step-left"><div class="expect-num">01</div><div class="expect-line"></div></div>
-              <div class="expect-content"><div class="expect-title">Fill out the form</div><div class="expect-desc">Opens in a new window via Google Forms. Upload photos and files securely. Takes about 5 minutes.</div></div>
-            </div>
-            <div class="expect-step">
-              <div class="expect-step-left"><div class="expect-num">02</div><div class="expect-line"></div></div>
-              <div class="expect-content"><div class="expect-title">I'll reach out within 1 business day</div><div class="expect-desc">I'll review your form and follow up to confirm details, answer questions, and schedule a call if needed.</div></div>
-            </div>
-            <div class="expect-step">
-              <div class="expect-step-left"><div class="expect-num">03</div><div class="expect-line"></div></div>
-              <div class="expect-content"><div class="expect-title">Kickoff & content gathering</div><div class="expect-desc">We align on goals, branding, and scope. You send over your content — text, photos, anything you have.</div></div>
-            </div>
-            <div class="expect-step">
-              <div class="expect-step-left"><div class="expect-num">04</div><div class="expect-line"></div></div>
-              <div class="expect-content"><div class="expect-title">Build, revisions & launch</div><div class="expect-desc">I build your site, we review together, make final tweaks, and launch — domain, DNS, SSL all handled.</div></div>
-            </div>
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Who I Work With</div>
+        <h2 class="section-h2">Every business deserves<br>a real online presence.</h2>
+        <p class="section-sub">You don't need to become a tech person to have a professional website. Whether you're selling products, serving customers, or leading a community — I handle the technical side so you can focus on what you actually do.</p>
+      </div>
+
+      <div class="buckets-grid reveal">
+
+        <div class="bucket-card">
+          <div class="bucket-num">01</div>
+          <div class="bucket-title">You just need to be found.</div>
+          <p class="bucket-desc">You pick up laundry, haul junk, cut grass, clean houses — something real and valuable. You're running on word of mouth and Facebook, and it's working, but you're leaving money on the table every time someone can't find you or your contact form is broken. Let's fix that.</p>
+          <div class="bucket-examples">
+            <span class="bucket-tag">Junk Removal</span>
+            <span class="bucket-tag">Laundry Pickup</span>
+            <span class="bucket-tag">Lawn & Trades</span>
+            <span class="bucket-tag">Local Services</span>
           </div>
         </div>
 
-        <div class="scope-mini reveal">
-          <h2>Not sure what you need?</h2>
-          <p>Every project is scoped to your business. Here's a sense of what's possible.</p>
-          <div class="scope-grid">
-            <div class="scope-row">
-              <div class="scope-left"><div class="scope-dot"></div><div><div class="scope-name">Get Found</div><div class="scope-sub">Single page · Local service business</div></div></div>
-              <div class="scope-label">Custom</div>
-            </div>
-            <div class="scope-row">
-              <div class="scope-left"><div class="scope-dot"></div><div><div class="scope-name">Multi-Page Site</div><div class="scope-sub">Church, nonprofit, community org</div></div></div>
-              <div class="scope-label">Custom</div>
-            </div>
-            <div class="scope-row">
-              <div class="scope-left"><div class="scope-dot"></div><div><div class="scope-name">Shopify Store</div><div class="scope-sub">Products, shipping, ADA compliance</div></div></div>
-              <div class="scope-label">Custom</div>
-            </div>
-            <div class="scope-row">
-              <div class="scope-left"><div class="scope-dot"></div><div><div class="scope-name">Site Rescue</div><div class="scope-sub">Wix, Squarespace, GoDaddy takeover</div></div></div>
-              <div class="scope-label">Custom</div>
-            </div>
+        <div class="bucket-card bucket-card--mid">
+          <div class="bucket-num">02</div>
+          <div class="bucket-title">You need more than a page.</div>
+          <p class="bucket-desc">You're a church, a nonprofit, a community organization — and your people need to find you, know your story, see what's coming up, and feel connected. A calendar, a missions section, a history page. Built so you can update it yourself without touching a single line of code.</p>
+          <div class="bucket-examples">
+            <span class="bucket-tag">Churches</span>
+            <span class="bucket-tag">Nonprofits</span>
+            <span class="bucket-tag">Community Orgs</span>
+            <span class="bucket-tag">Mission-Driven</span>
           </div>
-          <div class="scope-note">Pricing is based on your project's actual scope. Fill out the form and we'll figure out what makes sense together.</div>
+        </div>
+
+        <div class="bucket-card">
+          <div class="bucket-num">03</div>
+          <div class="bucket-title">You're ready to sell online.</div>
+          <p class="bucket-desc">You have products and you want a store that actually works — Shopify set up right, products loaded with proper images and alt text, shipping configured so it doesn't eat your margin, and a storefront that looks like a real brand. Multiple launches? No problem. That's what I'm here for.</p>
+          <div class="bucket-examples">
+            <span class="bucket-tag">Shopify Stores</span>
+            <span class="bucket-tag">Product Launches</span>
+            <span class="bucket-tag">Shipping Config</span>
+            <span class="bucket-tag">ADA Compliant</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CAPABILITY STRIP -->
+      <div class="cap-strip reveal">
+        <div class="cap-strip-label">Every project includes</div>
+        <div class="cap-list">
+          <div class="cap-item"><div class="cap-dot"></div>Mobile-friendly build</div>
+          <div class="cap-item"><div class="cap-dot"></div>ADA accessibility</div>
+          <div class="cap-item"><div class="cap-dot"></div>Domain & DNS setup</div>
+          <div class="cap-item"><div class="cap-dot"></div>SSL certificate</div>
+          <div class="cap-item"><div class="cap-dot"></div>Scoped to what you actually need</div>
+          <div class="cap-item"><div class="cap-dot"></div>No hidden fees</div>
         </div>
       </div>
 
-      <div class="reveal">
-        <div class="cta-card">
-          <div class="cta-card-top">
-            <div class="cta-card-label">Start Here</div>
-            <div class="cta-card-title">Ready when you are.</div>
-            <div class="cta-card-sub">The intake form opens securely in a new window. Upload photos, files, and anything else you need to share.</div>
-            <a href="https://forms.gle/dSqP6eaFh9DY4fZeA" class="cta-main-btn" target="_blank" rel="noopener">Open Intake Form →</a>
-            <div class="cta-note">Opens in a new window · Google Forms · Secure</div>
+      <!-- PROCESS -->
+      <div style="margin-top:96px;" class="reveal">
+        <div class="section-eyebrow">Process</div>
+        <h2 class="section-h2" style="margin-bottom:16px;">A clear process,<br>start to finish.</h2>
+        <p class="section-sub" style="margin-bottom:64px;">You always know what's happening and what's next. No surprises, no disappearing acts.</p>
+        <div class="timeline">
+          <div class="tl-step"><div class="tl-num">01</div><div class="tl-title">Kickoff</div><div class="tl-detail">Goals, branding &amp; scope.</div></div>
+          <div class="tl-step"><div class="tl-num">02</div><div class="tl-title">Content</div><div class="tl-detail">You send photos, copy, details.</div></div>
+          <div class="tl-step"><div class="tl-num">03</div><div class="tl-title">Build</div><div class="tl-detail">Full layout &amp; design.</div></div>
+          <div class="tl-step"><div class="tl-num">04</div><div class="tl-title">Revisions</div><div class="tl-detail">Adjustments &amp; polish.</div></div>
+          <div class="tl-step"><div class="tl-num">05</div><div class="tl-title">Launch</div><div class="tl-detail">Domain, DNS &amp; SSL handled.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Experience</div>
+        <h2 class="section-h2">Real projects.<br>Real businesses.</h2>
+        <p class="section-sub">Every build is scoped to what the client actually needed — not a template dropped on top of their brand.</p>
+      </div>
+
+      <div class="work-grid reveal">
+
+        <div class="work-card work-card--feature">
+          <div class="work-card-top">
+            <div class="work-tag">Shopify · Ecommerce · Ongoing</div>
+            <h3 class="work-title">Valor Canine Nutrition</h3>
+            <p class="work-desc">Built the Shopify store from scratch for a growing pet nutrition brand. Managed multiple product line launches — each with full product uploads, image alt text, variant configuration, and shipping setup. Now expanding to a multi-brand storefront.</p>
           </div>
-          <div class="cta-card-bottom">
-            <div class="cta-card-meta-title">What you'll need</div>
-            <div class="cta-meta-row"><div class="cta-meta-icon">🎯</div><div class="cta-meta-text"><strong>Your goals</strong><span>What do you want your site to do?</span></div></div>
-            <div class="cta-meta-row"><div class="cta-meta-icon">🎨</div><div class="cta-meta-text"><strong>Brand basics</strong><span>Logo, colors, fonts — or none yet, that's fine.</span></div></div>
-            <div class="cta-meta-row"><div class="cta-meta-icon">📄</div><div class="cta-meta-text"><strong>Content (optional)</strong><span>Photos, copy, examples — whatever you have.</span></div></div>
-            <div class="cta-meta-row"><div class="cta-meta-icon">📅</div><div class="cta-meta-text"><strong>Timeline idea</strong><span>When do you need it? No pressure if flexible.</span></div></div>
+          <div class="work-card-bottom">
+            <div class="work-detail"><div class="work-detail-dot"></div>Built from scratch</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>3 product launches</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>Multi-brand expansion</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>ADA accessible</div>
           </div>
         </div>
+
+        <div class="work-card">
+          <div class="work-card-top">
+            <div class="work-tag">Rescue · Site Takeover</div>
+            <h3 class="work-title">DIY Gone Wrong — Rebuild & Rescue</h3>
+            <p class="work-desc">Client built something on Wix. It wasn't working the way they needed. Took over the project, rebuilt it right, and handed them back something they could use and be proud of.</p>
+          </div>
+          <div class="work-card-bottom">
+            <div class="work-detail"><div class="work-detail-dot"></div>Existing site takeover</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>Full rebuild</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>Clean handoff</div>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <div class="work-card-top">
+            <div class="work-tag">Service Business · Full Launch</div>
+            <h3 class="work-title">Massage Therapist — Built & Live</h3>
+            <p class="work-desc">Designed and built a professional site for a solo practice. Content, layout, contact form — everything needed to get clients in the door. Deployed to Vercel, DNS configured, fully live.</p>
+          </div>
+          <div class="work-card-bottom">
+            <div class="work-detail"><div class="work-detail-dot"></div>Built from scratch</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>Deployed to Vercel</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>DNS configured</div>
+            <div class="work-detail"><div class="work-detail-dot"></div>Fully live</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rescue-bar reveal">
+        <div class="rescue-bar-left">
+          <div class="rescue-bar-title">Already have something that isn't working?</div>
+          <div class="rescue-bar-sub">Half-built Wix site. Squarespace that never looked right. A GoDaddy situation. A Google Form with a broken link. I can take it over, clean it up, and make it something you're not embarrassed to hand out.</div>
+        </div>
+        <a href="intake.html" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0;">Let's Fix It →</a>
       </div>
 
     </div>
-  </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <img src="assets/APDD 1.jpg" alt="Amanda Perez" />
+          <div class="about-deco"></div>
+          <div class="about-badge">
+            <div class="about-badge-num">CS</div>
+            <div class="about-badge-lbl">degree + real-world build</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="section-eyebrow">About</div>
+          <h2 class="section-h2">You run the business.<br>I'll handle the web.</h2>
+          <p class="about-body">I'm Amanda — a CS graduate, Product Analyst, and the person behind Chi Hullo Li Creations. I started this business because I kept watching small business owners lose customers to websites that were broken, outdated, or just didn't exist yet. That's a solvable problem.</p>
+          <p class="about-body">I work with product sellers, service businesses, churches, and community organizations — mostly in Oklahoma and Indian Country, though geography doesn't limit us. My clients range from Shopify store owners launching new product lines to churches that just need someone to update their events page without a tech headache. Every project gets my full attention and a clear process from start to finish.</p>
+          <p class="about-body" style="margin-bottom: 32px;">You shouldn't have to become a developer to have a professional online presence. That's what I'm here for.</p>
+          <div class="tags">
+            <span class="tag">CS Degree</span>
+            <span class="tag">Shopify</span>
+            <span class="tag">Web Design</span>
+            <span class="tag">Development</span>
+            <span class="tag">ADA Accessibility</span>
+            <span class="tag">Oklahoma-Based</span>
+            <span class="tag">Product Strategy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="reveal">
+          <div class="section-eyebrow" style="color:rgba(3,183,194,0.9);">Let's Work Together</div>
+          <h2 class="cta-h2">Ready to stop being<br><span class="grad-text">invisible online?</span></h2>
+          <p class="cta-sub">Fill out the intake form and I'll reach out within one business day. No sales pitch — just a straight conversation about what you need and what it'll take to get there.</p>
+          <a href="intake.html" class="btn btn-primary">Start Your Project →</a>
+        </div>
+        <div class="cta-box reveal">
+          <div class="cta-box-title">What happens next</div>
+          <div class="cta-step">
+            <div class="cta-step-icon">01</div>
+            <div class="cta-step-text"><strong>Fill out the intake form</strong><span>Takes about 5 minutes. Tell me what you need.</span></div>
+          </div>
+          <div class="cta-step">
+            <div class="cta-step-icon">02</div>
+            <div class="cta-step-text"><strong>I'll reach out within 1 business day</strong><span>We'll confirm details and schedule a quick call.</span></div>
+          </div>
+          <div class="cta-step">
+            <div class="cta-step-icon">03</div>
+            <div class="cta-step-text"><strong>Project kicks off</strong><span>Clear timeline, clear deliverables, no surprises.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -244,9 +685,10 @@
     <div class="footer-inner">
       <p class="footer-copy">© <span id="yr"></span> Amanda Perez Design & Development — Chi Hullo Li Creations LLC.</p>
       <div class="footer-links">
-        <a href="index.html#services">Services</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="intake.html">Start a Project</a>
       </div>
     </div>
   </div>
@@ -255,7 +697,9 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
   }, { threshold: 0.10 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
