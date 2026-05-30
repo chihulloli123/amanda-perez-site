@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Word Search Generator | Amanda Perez Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --teal: #0d9488;
+      --teal-light: #14b8a6;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --gradient: linear-gradient(135deg, #0d9488 0%, #2563eb 100%);
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(13,148,136,0.10);
+      --shadow-lg: 0 8px 40px rgba(37,99,235,0.13);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--gradient);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    header h1 {
+      color: var(--white);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+    header p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+      font-weight: 300;
+      position: relative;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .container { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.5rem; }
+    }
+
+    /* PANEL */
+    .panel {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .panel h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--gray-100);
+    }
+
+    /* FORM ELEMENTS */
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    textarea {
+      width: 100%;
+      height: 160px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      color: var(--gray-800);
+      resize: vertical;
+      transition: border-color 0.2s;
+      background: var(--gray-50);
+    }
+    textarea:focus { outline: none; border-color: var(--teal); background: var(--white); }
+
+    .field { margin-bottom: 1.25rem; }
+
+    select {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2394a3b8' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+    select:focus { outline: none; border-color: var(--teal); }
+
+    /* SHAPE PICKER */
+    .shape-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .shape-btn {
+      border: 2px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 0.65rem 0.4rem;
+      cursor: pointer;
+      text-align: center;
+      background: var(--gray-50);
+      transition: all 0.18s;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gray-600);
+    }
+    .shape-btn svg { display: block; margin: 0 auto 0.3rem; }
+    .shape-btn:hover { border-color: var(--teal-light); color: var(--teal); background: #f0fdfa; }
+    .shape-btn.active { border-color: var(--teal); background: #f0fdfa; color: var(--teal); }
+
+    /* TOGGLE */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .toggle-row label { margin: 0; }
+    .toggle {
+      position: relative;
+      width: 42px;
+      height: 24px;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: var(--gray-200);
+      border-radius: 24px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .slider:before {
+      content: '';
+      position: absolute;
+      height: 18px; width: 18px;
+      left: 3px; top: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+    input:checked + .slider { background: var(--teal); }
+    input:checked + .slider:before { transform: translateX(18px); }
+
+    /* TITLE FIELD */
+    input[type="text"] {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus { outline: none; border-color: var(--teal); background: white; }
+
+    /* BUTTONS */
+    .btn {
+      width: 100%;
+      padding: 0.85rem;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      margin-top: 0.5rem;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+    .btn-secondary {
+      background: white;
+      color: var(--teal);
+      border: 2px solid var(--teal);
+      margin-top: 0.75rem;
+    }
+    .btn-secondary:hover { background: #f0fdfa; }
+
+    /* OUTPUT PANEL */
+    .output-panel {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+    .output-panel h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--gray-100);
+    }
+
+    .placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      text-align: center;
+      gap: 0.75rem;
+    }
+    .placeholder svg { opacity: 0.3; }
+    .placeholder p { font-size: 0.9rem; }
+
+    /* WORD SEARCH GRID */
+    #puzzle-container { display: none; flex-direction: column; gap: 1.5rem; }
+    #puzzle-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--gray-800);
+    }
+
+    #grid-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    #grid-canvas {
+      border-radius: 12px;
+      border: 2px solid var(--gray-200);
+      display: block;
+    }
+
+    .word-list-section { margin-top: 0.5rem; }
+    .word-list-section h3 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .word-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .word-chip {
+      background: var(--gray-100);
+      color: var(--gray-800);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .action-row .btn { margin-top: 0; }
+
+    /* ERROR */
+    .error-msg {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      font-size: 0.83rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Word Search Generator</h1>
+  <p>Create printable word searches in seconds — traditional, circle, or cross shapes</p>
+</header>
+
+<div class="container">
+
+  <!-- LEFT: Controls -->
+  <div class="panel">
+    <h2>Configure</h2>
+
+    <div class="field">
+      <label>Puzzle Title</label>
+      <input type="text" id="puzzle-title-input" placeholder="e.g. Mother's Day Word Search" value="Word Search"/>
+    </div>
+
+    <div class="field">
+      <label>Words (one per line)</label>
+      <textarea id="words-input" placeholder="LOVE&#10;PEACE&#10;JESUS&#10;KINDNESS&#10;FAITH"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Grid Size</label>
+      <select id="grid-size">
+        <option value="12">Small (12×12)</option>
+        <option value="15" selected>Medium (15×15)</option>
+        <option value="18">Large (18×18)</option>
+        <option value="20">Extra Large (20×20)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Shape</label>
+      <div class="shape-grid">
+        <button class="shape-btn active" data-shape="square" onclick="selectShape(this)">
+          <svg width="28" height="28" viewBox="0 0 28 28"><rect x="2" y="2" width="24" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          Traditional
+        </button>
+        <button class="shape-btn" data-shape="circle" onclick="selectShape(this)">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          Circle
+        </button>
+        <button class="shape-btn" data-shape="cross" onclick="selectShape(this)">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <rect x="10" y="2" width="8" height="24" rx="1" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect x="2" y="10" width="24" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          Cross
+        </button>
+      </div>
+    </div>
+
+    <div class="toggle-row">
+      <label>Allow Backwards Words</label>
+      <label class="toggle">
+        <input type="checkbox" id="allow-backwards"/>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div id="error-msg" class="error-msg"></div>
+
+    <button class="btn btn-primary" onclick="generate()">✦ Generate Puzzle</button>
+  </div>
+
+  <!-- RIGHT: Output -->
+  <div class="output-panel">
+    <h2>Puzzle Preview</h2>
+    <div id="placeholder" class="placeholder">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="56" height="56" rx="4" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="32" y="36" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#94a3b8">W S</text>
+      </svg>
+      <p>Your word search will appear here.<br/>Enter words and hit Generate.</p>
+    </div>
+    <div id="puzzle-container">
+      <div id="puzzle-title-display"></div>
+      <div id="grid-wrapper"><canvas id="grid-canvas"></canvas></div>
+      <div class="word-list-section">
+        <h3>Find These Words</h3>
+        <div class="word-list" id="word-list"></div>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="downloadPDF()">⬇ Download PDF</button>
+        <button class="btn btn-secondary" onclick="generate()">↺ Regenerate</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────
+let currentShape = 'square';
+let currentGrid = [];
+let currentWords = [];
+let gridSize = 15;
+
+function selectShape(el) {
+  document.querySelectorAll('.shape-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  currentShape = el.dataset.shape;
+}
+
+// ── Shape mask ─────────────────────────────────────────────────────────
+function buildMask(size, shape) {
+  const mask = Array.from({length: size}, () => new Array(size).fill(false));
+  const mid = (size - 1) / 2;
+  const r = mid;
+
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      if (shape === 'square') {
+        mask[y][x] = true;
+      } else if (shape === 'circle') {
+        const dist = Math.sqrt((x - mid)**2 + (y - mid)**2);
+        mask[y][x] = dist <= r - 0.5;
+      } else if (shape === 'cross') {
+        const third = Math.floor(size / 3);
+        const inV = x >= third && x < size - third;
+        const inH = y >= third && y < size - third;
+        mask[y][x] = inV || inH;
+      }
+    }
+  }
+  return mask;
+}
+
+// ── Core word search logic ─────────────────────────────────────────────
+function createGrid(size) {
+  return Array.from({length: size}, () => new Array(size).fill(' '));
+}
+
+function canPlace(grid, mask, word, x, y, dx, dy, size) {
+  for (let i = 0; i < word.length; i++) {
+    const nx = x + i * dx, ny = y + i * dy;
+    if (nx < 0 || nx >= size || ny < 0 || ny >= size) return false;
+    if (!mask[ny][nx]) return false;
+    if (grid[ny][nx] !== ' ' && grid[ny][nx] !== word[i]) return false;
+  }
+  return true;
+}
+
+function placeWord(grid, mask, word, size, allowBackwards) {
+  let dirs = [[1,0],[0,1],[1,1],[1,-1]];
+  if (allowBackwards) dirs = [...dirs, [-1,0],[0,-1],[-1,-1],[-1,1]];
+  const shuffled = dirs.sort(() => Math.random() - 0.5);
+  for (let attempt = 0; attempt < 200; attempt++) {
+    const [dx, dy] = shuffled[attempt % shuffled.length];
+    const x = Math.floor(Math.random() * size);
+    const y = Math.floor(Math.random() * size);
+    if (canPlace(grid, mask, word, x, y, dx, dy, size)) {
+      for (let i = 0; i < word.length; i++) {
+        grid[y + i * dy][x + i * dx] = word[i];
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
+function fillEmpty(grid, mask, size) {
+  const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for (let y = 0; y < size; y++)
+    for (let x = 0; x < size; x++)
+      if (grid[y][x] === ' ' && mask[y][x])
+        grid[y][x] = alpha[Math.floor(Math.random() * 26)];
+}
+
+// ── Generate ───────────────────────────────────────────────────────────
+function generate() {
+  const errEl = document.getElementById('error-msg');
+  errEl.style.display = 'none';
+
+  const raw = document.getElementById('words-input').value.trim();
+  if (!raw) { showError('Please enter at least one word.'); return; }
+
+  const words = raw.split('\n')
+    .map(w => w.trim().toUpperCase().replace(/[^A-Z]/g,''))
+    .filter(w => w.length > 0);
+
+  if (words.length === 0) { showError('No valid words found.'); return; }
+
+  gridSize = parseInt(document.getElementById('grid-size').value);
+  const allowBackwards = document.getElementById('allow-backwards').checked;
+  const mask = buildMask(gridSize, currentShape);
+  const grid = createGrid(gridSize);
+
+  const failed = [];
+  for (const word of words) {
+    if (word.length > gridSize) { failed.push(word + ' (too long)'); continue; }
+    if (!placeWord(grid, mask, word, gridSize, allowBackwards)) failed.push(word);
+  }
+
+  fillEmpty(grid, mask, gridSize);
+
+  currentGrid = grid;
+  currentWords = words.filter(w => !failed.includes(w));
+
+  renderCanvas(grid, mask, gridSize);
+  renderWordList(words, failed);
+
+  const title = document.getElementById('puzzle-title-input').value || 'Word Search';
+  document.getElementById('puzzle-title-display').textContent = title;
+
+  document.getElementById('placeholder').style.display = 'none';
+  document.getElementById('puzzle-container').style.display = 'flex';
+
+  if (failed.length > 0) showError(`Could not place: ${failed.join(', ')}. Try a larger grid.`);
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+// ── Canvas Render ──────────────────────────────────────────────────────
+function renderCanvas(grid, mask, size) {
+  const canvas = document.getElementById('grid-canvas');
+  const maxW = Math.min(520, window.innerWidth - 80);
+  const cell = Math.floor(maxW / size);
+  const dim = cell * size;
+  canvas.width = dim;
+  canvas.height = dim;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, dim, dim);
+
+  // Background
+  ctx.fillStyle = '#f8fafc';
+  ctx.fillRect(0, 0, dim, dim);
+
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      if (!mask[y][x]) continue;
+      // Cell bg
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.roundRect(x*cell+1, y*cell+1, cell-2, cell-2, 3);
+      ctx.fill();
+      // Letter
+      if (grid[y][x] !== ' ') {
+        ctx.fillStyle = '#1e293b';
+        ctx.font = `600 ${Math.floor(cell*0.52)}px Poppins, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(grid[y][x], x*cell + cell/2, y*cell + cell/2);
+      }
+    }
+  }
+}
+
+function renderWordList(words, failed) {
+  const container = document.getElementById('word-list');
+  container.innerHTML = '';
+  words.forEach(w => {
+    const chip = document.createElement('span');
+    chip.className = 'word-chip';
+    chip.textContent = w;
+    if (failed.includes(w)) chip.style.opacity = '0.4';
+    container.appendChild(chip);
+  });
+}
+
+// ── PDF Download ───────────────────────────────────────────────────────
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'letter' });
+
+  const title = document.getElementById('puzzle-title-input').value || 'Word Search';
+  const margin = 50;
+  const pageW = 612;
+  const availW = pageW - margin * 2;
+  const cellSize = Math.floor(availW / gridSize);
+  const gridW = cellSize * gridSize;
+  const startX = (pageW - gridW) / 2;
+  const startY = 100;
+
+  // Title
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(22);
+  doc.setTextColor(13, 148, 136);
+  doc.text(title, pageW / 2, 60, { align: 'center' });
+
+  // Grid
+  const mask = buildMask(gridSize, currentShape);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(Math.max(7, cellSize * 0.45));
+  doc.setTextColor(30, 41, 59);
+
+  for (let y = 0; y < gridSize; y++) {
+    for (let x = 0; x < gridSize; x++) {
+      if (!mask[y][x] || currentGrid[y][x] === ' ') continue;
+      const px = startX + x * cellSize + cellSize / 2;
+      const py = startY + y * cellSize + cellSize * 0.65;
+      doc.text(currentGrid[y][x], px, py, { align: 'center' });
+    }
+  }
+
+  // Grid lines (subtle)
+  doc.setDrawColor(226, 232, 240);
+  doc.setLineWidth(0.5);
+  for (let y = 0; y <= gridSize; y++) {
+    for (let x = 0; x <= gridSize; x++) {
+      if (y < gridSize && x < gridSize && mask[y][x]) {
+        doc.rect(startX + x * cellSize, startY + y * cellSize, cellSize, cellSize);
+      }
+    }
+  }
+
+  // Word list
+  const wordY = startY + gridSize * cellSize + 30;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(71, 85, 105);
+  doc.text('Find These Words:', margin, wordY);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(30, 41, 59);
+  const cols = 4;
+  const colW = availW / cols;
+  currentWords.forEach((w, i) => {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    doc.text(w, margin + col * colW, wordY + 18 + row * 16);
+  });
+
+  // Footer
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.setTextColor(148, 163, 184);
+  doc.text('Generated by Amanda Perez Design', pageW / 2, 770, { align: 'center' });
+
+  doc.save(`${title.replace(/\s+/g,'-').toLowerCase()}.pdf`);
+}
+
+// ── Resize ─────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  if (currentGrid.length > 0) {
+    const mask = buildMask(gridSize, currentShape);
+    renderCanvas(currentGrid, mask, gridSize);
+  }
+});
+</script>
+</body>
+</html>
