@@ -15,13 +15,13 @@ export default function ServiceTimes() {
         <div className="grid gap-6 md:grid-cols-3">
           {serviceTimes.map((service) => (
             <Card key={service.id}>
-              <h3 className="mb-2 text-2xl font-semibold">
+              <h3 className="mb-3 text-2xl font-bold text-[#6F408A]">
                 {service.name}
               </h3>
 
-              <p>{service.day}</p>
+              <p className="text-gray-600">{service.day}</p>
 
-              <p className="text-[#6F408A] font-bold">
+              <p className="mt-2 text-xl font-semibold">
                 {service.time}
               </p>
             </Card>
