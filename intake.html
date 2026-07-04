@@ -254,12 +254,6 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.10 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+<script src="assets/script.js"></script>
 </body>
 </html>
