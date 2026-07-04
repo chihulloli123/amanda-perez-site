@@ -1,11 +1,20 @@
+import Card from "./ui/Card";
+import Container from "./ui/Container";
+import SectionTitle from "./ui/SectionTitle";
+import { church } from "../data/church";
+
 export default function Mission() {
   return (
-    <section>
-      <h2>Our Mission</h2>
+    <section className="py-20">
+      <Container>
+        <SectionTitle title="Our Mission" />
 
-      <p>
-        Love God. Love People. Serve the Community.
-      </p>
+        <Card>
+          <p className="text-center text-xl text-gray-700">
+            {church.mission}
+          </p>
+        </Card>
+      </Container>
     </section>
   );
 }
