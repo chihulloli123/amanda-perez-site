@@ -1,9 +1,12 @@
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-      <h1 className="text-5xl font-bold">🚀 Tailwind is working!</h1>
-    </div>
-  )
+    <MainLayout>
+      <HomePage />
+    </MainLayout>
+  );
 }
 
 export default App;
