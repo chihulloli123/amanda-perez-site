@@ -1,5 +1,6 @@
 import Container from "../components/ui/Container";
 import SectionTitle from "../components/ui/SectionTitle";
+import { historyContent } from "../content/history";
 
 export default function HistoryPage() {
   return (
@@ -7,11 +8,11 @@ export default function HistoryPage() {
       <section className="bg-[#6F408A] py-20 text-white">
         <Container>
           <h1 className="text-5xl font-bold">
-            Our History
+            {historyContent.hero.title}
           </h1>
 
           <p className="mt-6 max-w-3xl text-xl">
-            Honoring our past while faithfully serving future generations.
+            {historyContent.hero.subtitle}
           </p>
         </Container>
       </section>
@@ -19,60 +20,33 @@ export default function HistoryPage() {
       <section className="py-20">
         <Container>
           <SectionTitle
-            title="Chihowa Okla United Methodist Church"
-            subtitle="A history of worship, fellowship, and service."
+            title="Our Journey"
+            subtitle="Key milestones in the life of our congregation."
           />
 
-          <div className="space-y-6 text-lg leading-8 text-gray-700">
-            <p>
-              Chihowa Okla United Methodist Church has faithfully served the
-              Durant community for generations. Our congregation continues to
-              be a place where people gather to worship, learn, and serve.
-            </p>
+          <p className="mb-12 text-lg leading-8 text-gray-700">
+            {historyContent.introduction}
+          </p>
 
-            <p>
-              Through changing times, our commitment to Christ and our
-              neighbors has remained constant.
-            </p>
-          </div>
-        </Container>
-      </section>
+          <div className="space-y-10">
+            {historyContent.timeline.map((item) => (
+              <div
+                key={item.year}
+                className="rounded-xl border-l-4 border-[#6F408A] bg-white p-6 shadow"
+              >
+                <h3 className="text-2xl font-bold text-[#6F408A]">
+                  {item.year}
+                </h3>
 
-      <section className="bg-gray-50 py-20">
-        <Container>
-          <SectionTitle
-            title="Oklahoma Indian Missionary Conference"
-            subtitle="Our connection to Native Methodist ministry."
-          />
+                <h4 className="mt-2 text-xl font-semibold">
+                  {item.title}
+                </h4>
 
-          <div className="space-y-6 text-lg leading-8 text-gray-700">
-            <p>
-              Chihowa Okla United Methodist Church is part of the Oklahoma
-              Indian Missionary Conference, whose ministries have served Native
-              communities across Oklahoma for generations.
-            </p>
-
-            <p>
-              The conference continues to support churches through worship,
-              leadership development, and community outreach.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-20">
-        <Container>
-          <SectionTitle
-            title="United Methodist Heritage"
-            subtitle="Part of a worldwide connection."
-          />
-
-          <div className="space-y-6 text-lg leading-8 text-gray-700">
-            <p>
-              As a United Methodist congregation, we share in a tradition of
-              grace, discipleship, and service that reaches communities around
-              the world.
-            </p>
+                <p className="mt-3 text-gray-700">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
